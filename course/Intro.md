@@ -1,4 +1,4 @@
-# Intro to making your own programming (scripting. language
+# Intro to making your own programming scripting. language
 
 In this albeit short course, i'll show you some of the basics of creating a language that computers can understand, and parse.
 
@@ -82,7 +82,6 @@ It's always important to consider the scale of the project you're working on, in
 
 This is also one of the things you don't have to worry about since i'll handle all of it. But for your information this will be a standard node.js project so it'll be like this:
 
-    ```
     .
     ├── LICENSE
     ├── README.md
@@ -90,7 +89,7 @@ This is also one of the things you don't have to worry about since i'll handle a
     ├── node_modules
     ├── package-lock.json
     └── package.json
-    ```
+
 **11. Am I going to be a Billy on this project?**
 
 According to urban.com a Billy is "someone who thinks or acts like they are a badass" or "a bong" :p.
@@ -100,3 +99,5 @@ Don't be a billy. Be a Bob.
 ## End note
 
 I might wanna add this is a super beginner friendly and all of this is just to give an idea of what we'll be working with, so no need to feel pressured by all of this info, but having a clear idea of where we wanna end up from the beginning helps us later on.
+
+Next up is [Syntax.md](Syntax.md)
