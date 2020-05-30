@@ -1,5 +1,5 @@
-import { Client } from "discord.js";
+import { Client, Guild } from "discord.js";
 
-export default async function fetchGuild(client: Client, guildId: string) {
-    return client.guilds.resolve(guildId);
+export default async function fetchGuild(client: Client, guildID: string): Promise<Guild | undefined> {
+    return client.guilds.resolve(guildID) as Guild | undefined;
 }
