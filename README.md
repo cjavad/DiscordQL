@@ -7,25 +7,22 @@ You ever wanted to browse your discord server from a terminal? Look no further d
 Currently the discord engine uses the following system to execute and interact with discord.
 
 ```ts
-import { Engine, Call } from "./src/engine"
+import Engine from "./engine";
+import { event } from "./engine/listenBase";
 
 const engine = new Engine('discord token');
 
-// Add calls to stack or execute it instantly
+(async () => {
+    await engine.executeCall('fetchGuild', 'guild id');
+    await engine.executeCall('fetchChannel', 'channel id');
 
-let call;
+    await engine.executeCall('listenChannel', {
+        handler: (event: event) => {
+            console.log(event.eventName);
+        }
+    });
+})();
 
-call = new Call('showGuilds', []);
-
-engine.executeCall(call, (command: string, callback: any) => {
-    // Here callback will be a Collection<Snowflake, Guild>
-    // We'll use the first guild for instance.
-    var guildID = callback.array()[0];
-    engine.addCall('fetchGuild', [guildID]);
-    engine.addCall('fetchChannel', ['channelID']);
-    engine.addCall('sendMessage', { content: 'Hello World!' });
-    engine.executeStack((command: string, callback: any) => {});
-});
 ```
 
 TODO: Make engine calls async with Promises.

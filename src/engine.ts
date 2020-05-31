@@ -1,4 +1,4 @@
-import { Client,  TextChannel, DMChannel, MessageOptions, MessageEditOptions, ChannelLogsQueryOptions,  Guild } from "discord.js";
+import { Client,  TextChannel, DMChannel, MessageOptions, MessageEditOptions, ChannelLogsQueryOptions,  Guild, ClientEvents, Message, Collection } from "discord.js";
 import sendMessage from "./engine/sendMessage";
 import deleteMessage from "./engine/deleteMessage";
 import editMessage from "./engine/editMessage";
@@ -7,10 +7,23 @@ import fetchChannel from "./engine/fetchChannel";
 import showGuilds from "./engine/showGuilds";
 import showChannels from "./engine/showChannels";
 import readChannel from "./engine/readChannel";
+import listenClient from "./engine/listenClient";
+import listenGuild from "./engine/listenGuild";
+import listenChannel from "./engine/listenChannel";
+import { event } from "./engine/listenBase";
 
-interface EngineCall {
-    command: string,
-    values: any
+interface EngineCommands {
+    fetchGuild: [string],
+    fetchChannel: [string],
+    showGuilds: [string?],
+    showChannels: [string?],
+    sendMessage: [MessageOptions],
+    editMessage: [string, MessageEditOptions],
+    deleteMessage: [string],
+    readChannel: [ChannelLogsQueryOptions],
+    listenClient: [ListenCall],
+    listenGuild: [ListenCall],
+    listenChannel: [ListenCall]
 }
 
 interface EngineInstance {
@@ -19,22 +32,32 @@ interface EngineInstance {
     currentChannel?: TextChannel | DMChannel
 }
 
-export class Instance implements EngineInstance {
+
+interface ListenCall {
+    handler(event: event): void,
+    includeEvents?: Array<keyof ClientEvents>
+}
+
+class Instance implements EngineInstance {
     constructor (public discordToken: string, public currentGuild?: Guild, public currentChannel?: TextChannel | DMChannel) {
         
     }
 }
 
-export class Call implements EngineCall {
-    constructor (public command: string, public values: Array<string> | MessageOptions | Array<String | MessageEditOptions> | ChannelLogsQueryOptions) {
-        
+class EngineError extends Error {
+    command: string;
+
+    constructor (command: string, ...params: any) {
+        super(...params);
+        Error.captureStackTrace(this, EngineError);
+        this.name = 'EngineError';
+        this.command = command;
     }
 }
 
-export class Engine {
+export default class Engine {
     client: Client;
     discordToken: string;
-    stack: Array<EngineCall> = [];
     instance: EngineInstance;
 
     constructor (discordToken: string) {
@@ -43,23 +66,7 @@ export class Engine {
         this.instance = new Instance(discordToken);
     }
 
-    addStack (engineCall: EngineCall) {
-        this.stack.push(engineCall);
-    }
-
-    addCall (command: string, values: Array<string> | MessageOptions | Array<String | MessageEditOptions> | ChannelLogsQueryOptions) {
-        this.addStack(new Call(command, values));
-    }
-
-    async executeStack (handler?: (command: string, callback: any) => void) {
-        for (let i = 0; i < this.stack.length; i++) {
-            await this.executeCall(this.stack[i], handler);
-        }
-
-        this.stack = [];
-    }
-
-    async executeCall (engineCall: EngineCall, handler?: (command: string, callback: any) => void) {
+    async executeCall<K extends keyof EngineCommands> (command: K, ...values: EngineCommands[K] ): Promise<any> {
         let client: Client;
 
         if (this.client.token) {
@@ -69,56 +76,72 @@ export class Engine {
             client = this.client;
         }
 
-        if (engineCall.command === 'fetchGuild') {
-            if (!client) return;
-            if (!/\d{18}/.test(engineCall.values[0])) return;
-            var guildID = engineCall.values[0];
-            this.instance.currentGuild = await fetchGuild(client, guildID);
-            if (handler) handler(engineCall.command, this.instance.currentGuild);
-        } else if (engineCall.command === 'fetchChannel') {
-            if (!client) return;
-            if (!/\d{18}/.test(engineCall.values[0])) return;
-            var channelID = engineCall.values[0];
-            this.instance.currentChannel = await fetchChannel(client, channelID);
-            if (handler) handler(engineCall.command, this.instance.currentChannel);
-        } else if (engineCall.command === 'showGuilds') {
-            if (!client) return;
-            let search = undefined;
-            if (typeof engineCall.values[0] === 'string') search = engineCall.values[0];
-            var guilds = await showGuilds(client, search);
-            if (handler) handler(engineCall.command, guilds);
-        } else if (engineCall.command === 'showChannels') {
-            if (!this.instance.currentGuild) return;
-            let search = undefined;
-            if (typeof engineCall.values[0] === 'string') search = engineCall.values[0];
-            var channels = await showChannels(this.instance.currentGuild, search);
-            if (handler) handler(engineCall.command, channels);
-        } else if (engineCall.command === 'sendMessage') {
-            if (!this.instance.currentChannel) return;
-            if (typeof engineCall.values !== 'object') return;
-            let options: MessageOptions = engineCall.values;
-            var message = await sendMessage(this.instance.currentChannel, options);
-            if (handler) handler(engineCall.command, message);
-        } else if (engineCall.command === 'editMessage') {
-            if (!this.instance.currentChannel) return;
-            if (!/\d{18}/.test(engineCall.values[0])) return;
-            if (typeof engineCall.values[1] !== 'object') return;
-            var messageID = engineCall.values[0];
-            let options: MessageEditOptions = engineCall.values[1];
-            var message = await editMessage(this.instance.currentChannel, messageID, options);
-            if (handler) handler(engineCall.command, message);
-        } else if (engineCall.command === 'deleteMessage') {
-            if (!this.instance.currentChannel) return;
-            if (!/\d{18}/.test(engineCall.values[0])) return;
-            var messageID = engineCall.values[0];
-            var message = await deleteMessage(this.instance.currentChannel, messageID);
-            if (handler) handler(engineCall.command, message);
-        } else if (engineCall.command === 'readChannel') {
-            if (!this.instance.currentChannel) return;
-            if (typeof engineCall.values !== 'object') return;
-            let options: ChannelLogsQueryOptions = engineCall.values;
-            var messages = await readChannel(this.instance.currentChannel, options);
-            if (handler) handler(engineCall.command, messages);
-        }
+        return new Promise(async (resolve, reject) => {
+            if (command === 'fetchGuild') {
+                if (!client) return reject(new EngineError(command));
+                if (!/\d{18}/.test(values[0] as string)) return reject(new EngineError(command));
+                var guildID = values[0] as string;
+                this.instance.currentGuild = await fetchGuild(client, guildID);
+                return resolve(this.instance.currentGuild);
+            } else if (command === 'fetchChannel') {
+                if (!client) return reject(new EngineError(command));
+                if (!/\d{18}/.test(values[0] as string)) return reject(new EngineError(command));
+                var channelID = values[0] as string;
+                this.instance.currentChannel = await fetchChannel(client, channelID);
+                return resolve(this.instance.currentChannel);
+            } else if (command === 'showGuilds') {
+                if (!client) return reject(new EngineError(command));
+                let search = undefined;
+                if (typeof values[0] === 'string') search = values[0];
+                var guilds = await showGuilds(client, search);
+                return resolve(guilds);
+            } else if (command === 'showChannels') {
+                if (!this.instance.currentGuild) return reject(new EngineError(command));
+                let search = undefined;
+                if (typeof values[0] === 'string') search = values[0];
+                var channels = await showChannels(this.instance.currentGuild, search);
+                return resolve(channels);
+            } else if (command === 'sendMessage') {
+                if (!this.instance.currentChannel) return reject(new EngineError(command));
+                if (typeof values !== 'object') return reject(new EngineError(command));
+                let options: MessageOptions = values as MessageOptions;
+                var message = await sendMessage(this.instance.currentChannel, options);
+                return resolve(message);
+            } else if (command === 'editMessage') {
+                if (!this.instance.currentChannel) return reject(new EngineError(command));
+                if (!/\d{18}/.test(values[0] as string)) return reject(new EngineError(command));
+                if (typeof values[1] !== 'object') return reject(new EngineError(command));
+                var messageID = values[0] as string;
+                let options: MessageEditOptions = values[1] as MessageEditOptions;
+                var message = await editMessage(this.instance.currentChannel, messageID, options);
+                return resolve(message);
+            } else if (command === 'deleteMessage') {
+                if (!this.instance.currentChannel) return reject(new EngineError(command));
+                if (!/\d{18}/.test(values[0] as string)) return reject(new EngineError(command));
+                var messageID = values[0] as string;
+                var message = await deleteMessage(this.instance.currentChannel, messageID);
+                return resolve(message);
+            } else if (command === 'readChannel') {
+                if (!this.instance.currentChannel) return reject(new EngineError(command));
+                if (typeof values !== 'object') return reject(new EngineError(command));
+                let options: ChannelLogsQueryOptions = values as ChannelLogsQueryOptions;
+                var messages = await readChannel(this.instance.currentChannel, options);
+                return resolve(messages);
+            } else if (command === 'listenClient') {
+                if (!client || !values) return reject(new EngineError(command));
+                var options: ListenCall = values[0] as unknown as ListenCall;
+                return resolve(listenClient(client, options.handler, options.includeEvents));
+
+            } else if (command === 'listenGuild') {
+                if (!client || !this.instance.currentGuild || !values) return reject(new EngineError(command));
+                var options: ListenCall = values[0] as unknown as ListenCall;
+                return resolve(listenGuild(client, this.instance.currentGuild, options.handler, options.includeEvents));
+
+            } else if (command === 'listenChannel') {
+                if (!client || !this.instance.currentChannel || !values) return reject(new EngineError(command));
+                var options: ListenCall = values[0] as unknown as ListenCall;
+                return resolve(listenChannel(client, this.instance.currentChannel, options.handler, options.includeEvents));
+            }
+        });
     }
 }
