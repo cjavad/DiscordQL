@@ -1,7 +1,7 @@
 import { TextChannel, DMChannel, ChannelLogsQueryOptions, Collection, Snowflake, Message, SnowflakeUtil } from "discord.js";
 
 export default async function readChannel ( channel: TextChannel | DMChannel, options?: ChannelLogsQueryOptions): Promise<Collection<string, Message>> {
-    var limit: number = options?.limit || 2;
+    var limit: number = options?.limit || 50;
     delete options?.limit;
 
     return new Promise((resolve, reject) => {

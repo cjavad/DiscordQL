@@ -1,16 +1,17 @@
 import { Client, ClientEvents, Channel } from "discord.js";
 import { eventListener } from "./listenBase";
-import { Event } from "../types/listener";
+import { Event } from "../@types/listener";
+import { EngineListenOptions } from "../@types/engine";
 
-export default function channelListener (client: Client, channel: Channel, callback: (event: Event) => void, includeEvents?: Array<keyof ClientEvents>) {
-    eventListener(client, (event: Event) => {
+export default function channelListener (client: Client, channel: Channel, options: EngineListenOptions) {
+    eventListener (client, (event: Event<keyof ClientEvents>) => {
         if (event.ids.channelID === channel.id) {
-            if (includeEvents) {
-                if (includeEvents.includes(event.eventName)) {
-                    return callback(event);
+            if (options.includeEvents) {
+                if (options.includeEvents.includes(event.name)) {
+                    return options.handler(event);
                 }
             } else {
-                return callback(event);
+                return options.handler(event);
             }
         }
     });

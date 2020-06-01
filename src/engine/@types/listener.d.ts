@@ -5,9 +5,8 @@ export interface Ids {
     guildID?: string
 }
 
-
-export interface Event {
-    eventName: keyof ClientEvents,
-    params: any,
+export interface Event<K extends keyof ClientEvents> {
+    name: K,
+    params: ClientEvents[K],
     ids: Ids
 }

@@ -18,7 +18,7 @@ const engine = new Engine('discord token');
 
     await engine.executeCall('listenChannel', {
         handler: (event: event) => {
-            console.log(event.eventName);
+            console.log(event.name);
         }
     });
 })();

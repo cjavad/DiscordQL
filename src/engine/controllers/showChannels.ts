@@ -1,11 +1,7 @@
-import { Guild } from "discord.js";
+import { Guild, GuildChannel, Collection, Snowflake } from "discord.js";
 
 export default function showChannels(guild: Guild, search?: string) {
-    if (!search) {
-        return guild.channels.cache.array();
-    }
-
-    return guild.channels.cache.filter(channel => {
-        return channel.name.includes(search);
-    }).array();
+    let channels: Collection<Snowflake, GuildChannel> = guild.channels.cache;
+    if (search) channels = channels.filter(channel => channel.name.includes(search));
+    return channels.array();
 }
