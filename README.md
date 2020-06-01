@@ -24,5 +24,3 @@ const engine = new Engine('discord token');
 })();
 
 ```
-
-TODO: Make engine calls async with Promises.

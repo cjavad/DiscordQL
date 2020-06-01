@@ -1,19 +1,7 @@
 import { Client, ClientEvents } from "discord.js";
-import { callbackify } from "util";
+import { Ids, Event } from "../types/listener";
 
-export interface ids {
-  channelID?: string,
-  guildID?: string
-}
-
-
-export interface event {
-  eventName: keyof ClientEvents,
-  params: any,
-  ids: ids
-}
-
-function eventCallback(eventName: keyof ClientEvents, params: any, ids: ids): event {
+function eventCallback(eventName: keyof ClientEvents, params: any, ids: Ids): Event {
   return {
     eventName: eventName,
     params: params,
@@ -21,7 +9,7 @@ function eventCallback(eventName: keyof ClientEvents, params: any, ids: ids): ev
   }
 }
 
-export async function eventListener(client: Client, callback: (event: event) => void ): Promise <void> {
+export async function eventListener(client: Client, callback: (event: Event) => void ): Promise <void> {
   client.on('channelCreate', (channel: any) => {
     callback(eventCallback('channelCreate', {
       channel: channel

@@ -1,26 +1,21 @@
 import { TextChannel, DMChannel, ChannelLogsQueryOptions, Collection, Snowflake, Message, SnowflakeUtil } from "discord.js";
-import { rejects } from "assert";
 
-export default async function readChannel ( channel: TextChannel | DMChannel, options?: ChannelLogsQueryOptions): Promise<Collection<Snowflake, Message>> {
-    let limit: number;
-
-    if (options) {
-        limit = options.limit as number;
-    } else {
-        limit = 99;
-    }
+export default async function readChannel ( channel: TextChannel | DMChannel, options?: ChannelLogsQueryOptions): Promise<Collection<string, Message>> {
+    var limit: number = options?.limit || 2;
+    delete options?.limit;
 
     return new Promise((resolve, reject) => {
         let concatenated: Collection<Snowflake, Message>;
 
-        channel.messages.fetch({ limit: limit < 100 ? limit : 100 })
+        channel.messages.fetch({ limit: limit < 100 ? limit : 100, ...options })
             .then(collection => {
                 const nextBatch = (): void => {
                     var remaining = limit - collection.size;
 
                     if (remaining <= 0) return resolve(collection);
 
-                    channel.messages.fetch({ limit: remaining < 100 ? remaining : 100, before: collection.lastKey() })
+                    delete options?.before;
+                    channel.messages.fetch({ limit: remaining < 100 ? remaining : 100, before: collection.lastKey(), ...options })
                         .then(next => {
                             concatenated = collection.concat(next);
 
