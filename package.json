@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/cjavad/discord-cli#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^7.1.0",
     "nodemon": "^2.0.3",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"

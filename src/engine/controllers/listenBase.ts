@@ -1,14 +1,25 @@
-import { Client, ClientEvents } from "discord.js";
-import { Ids, Event } from "../@types/listener";
+import { Client, ClientEvents } from 'discord.js';
+import { Ids, Event } from '../@types/listener';
 
-function eventCallback<K extends keyof ClientEvents>(name: K, ids: Ids, ...params: ClientEvents[K]): Event<K> {
+/**
+ * Creates an Event object to return to callback(event: Event)
+ * @param name ClientEvents event name
+ * @param ids event context in the form of an Ids object
+ * @param params values contained by each event
+ */
+function eventCallback<K extends keyof ClientEvents> (name: K, ids: Ids, ...params: ClientEvents[K]): Event<K> {
   return {
     name: name,
     params: params,
     ids: ids
-  }
+  };
 }
 
+/**
+ * Handles all discord events and calls callback() with a Event object made by eventCallback
+ * @param client - Discord client instance
+ * @param callback - Callback function that takes an Event object that is called on every event
+ */
 export async function eventListener (client: Client, callback: (event: Event<keyof ClientEvents>) => void ): Promise <void> {
   client.on('channelCreate', (channel: any) => {
     callback(eventCallback('channelCreate', { channelID: channel.id, guildID: channel.guild ? channel.guild.id : undefined }, channel));

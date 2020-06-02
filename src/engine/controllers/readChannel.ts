@@ -1,7 +1,12 @@
-import { TextChannel, DMChannel, ChannelLogsQueryOptions, Collection, Snowflake, Message, SnowflakeUtil } from "discord.js";
+import { TextChannel, DMChannel, ChannelLogsQueryOptions, Collection, Snowflake, Message } from 'discord.js';
 
+/**
+ * Gets a list of messages from channel with options
+ * @param channel - Discord channel to read messages from
+ * @param options - ChannelLogsQueryOptions query options
+ */
 export default async function readChannel ( channel: TextChannel | DMChannel, options?: ChannelLogsQueryOptions): Promise<Collection<string, Message>> {
-    var limit: number = options?.limit || 50;
+    const limit: number = options?.limit || 50;
     delete options?.limit;
 
     return new Promise((resolve, reject) => {
@@ -10,7 +15,7 @@ export default async function readChannel ( channel: TextChannel | DMChannel, op
         channel.messages.fetch({ limit: limit < 100 ? limit : 100, ...options })
             .then(collection => {
                 const nextBatch = (): void => {
-                    var remaining = limit - collection.size;
+                    const remaining = limit - collection.size;
 
                     if (remaining <= 0) return resolve(collection);
 
@@ -25,11 +30,10 @@ export default async function readChannel ( channel: TextChannel | DMChannel, op
                             nextBatch();
                         })
                         .catch(error => reject(error));
-                }
+                };
 
                 nextBatch();
             })
             .catch(error => reject(error));
     });
-};
-
+}
