@@ -1,5 +1,5 @@
 {
-  "name": "discord-cli",
+  "name": "discord-query-lang",
   "version": "0.0.1",
   "description": "You ever wanted to browse your discord server from a terminal? Look no further discord-cli aims to be a CLI interface with your discord bot.",
   "main": "main.js",

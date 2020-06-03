@@ -288,9 +288,9 @@ EDIT "343341358242773387"m WITH "Next message text" {"title":"embed override"}E;
 
 ### `SHOW`
 
-The `SHOW` keyword is like a fancy `FETCH` in that it lists either all guilds the client is in or all channels* in a guild.
+The `SHOW` keyword is like a fancy `FETCH` in that it lists either all guilds the client is in or all channels\* and members\* in a guild.
 
-\* channels needs to be cached after the guild becomes active so it might not return a result instantly
+\* channels and members needs to be cached after the guild becomes active so it might not return a result instantly
 
 ```py
 SHOW;

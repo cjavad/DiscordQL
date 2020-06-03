@@ -1,5 +1,5 @@
 import { Client, ClientEvents } from 'discord.js';
-import { Ids, Event } from '../@types/listener';
+import { Ids, Event } from '../types/listener';
 
 /**
  * Creates an Event object to return to callback(event: Event)

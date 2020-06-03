@@ -1,5 +1,5 @@
 import { Client,  TextChannel, DMChannel, MessageOptions, ChannelLogsQueryOptions,  Guild, Message, PresenceData, User, GuildMember, Presence, GuildChannel } from 'discord.js';
-import { EngineInstance, EngineCommands, EngineCall, EngineListenOptions, EngineEditOptions } from './@types/engine';
+import { EngineInstance, EngineCommands, EngineCall, EngineListenOptions, EngineEditOptions } from './types/engine';
 import fetchGuild from './controllers/fetchGuild';
 import fetchChannel from './controllers/fetchChannel';
 import fetchUser from './controllers/fetchUser';
