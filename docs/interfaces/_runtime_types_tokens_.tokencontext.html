@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EngineInstance | discord-query-lang</title>
+	<title>TokenContext | discord-query-lang</title>
 	<meta name="description" content="Documentation for discord-query-lang">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_engine_types_engine_.html">&quot;engine/types/engine&quot;</a>
+					<a href="../modules/_runtime_types_tokens_.html">&quot;runtime/types/tokens&quot;</a>
 				</li>
 				<li>
-					<a href="_engine_types_engine_.engineinstance.html">EngineInstance</a>
+					<a href="_runtime_types_tokens_.tokencontext.html">TokenContext</a>
 				</li>
 			</ul>
-			<h1>Interface EngineInstance</h1>
+			<h1>Interface TokenContext</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Engine#instance inferface with current Engine variables</p>
+						<p>Token context containing information about each token</p>
 					</div>
 				</div>
 			</section>
@@ -80,14 +80,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">EngineInstance</span>
+						<span class="target">TokenContext</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_engine_index_.instance.html" class="tsd-signature-type">Instance</a></li>
+					<li><a href="../classes/_runtime_parser_.context.html" class="tsd-signature-type">Context</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -97,9 +97,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_types_engine_.engineinstance.html#currentchannel" class="tsd-kind-icon">current<wbr>Channel</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_types_engine_.engineinstance.html#currentguild" class="tsd-kind-icon">current<wbr>Guild</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_types_engine_.engineinstance.html#discordtoken" class="tsd-kind-icon">discord<wbr>Token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_tokens_.tokencontext.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_tokens_.tokencontext.html#keyword" class="tsd-kind-icon">keyword</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_tokens_.tokencontext.html#token" class="tsd-kind-icon">token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_tokens_.tokencontext.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -108,32 +109,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="currentchannel" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> current<wbr>Channel</h3>
-					<div class="tsd-signature tsd-kind-icon">current<wbr>Channel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DMChannel</span></div>
+					<a name="index" class="tsd-anchor"></a>
+					<h3>index</h3>
+					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/types/engine.ts#L31">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/types/engine.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/runtime/types/tokens.ts#L45">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/tokens.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="currentguild" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> current<wbr>Guild</h3>
-					<div class="tsd-signature tsd-kind-icon">current<wbr>Guild<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Guild</span></div>
+					<a name="keyword" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> keyword</h3>
+					<div class="tsd-signature tsd-kind-icon">keyword<span class="tsd-signature-symbol">:</span> <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/types/engine.ts#L30">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/types/engine.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/runtime/types/tokens.ts#L47">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/tokens.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="discordtoken" class="tsd-anchor"></a>
-					<h3>discord<wbr>Token</h3>
-					<div class="tsd-signature tsd-kind-icon">discord<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="token" class="tsd-anchor"></a>
+					<h3>token</h3>
+					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/types/engine.ts#L29">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/types/engine.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/runtime/types/tokens.ts#L44">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/tokens.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/runtime/types/tokens.ts#L46">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/tokens.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -146,42 +157,39 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_engine_types_engine_.html">&quot;engine/types/engine&quot;</a>
+						<a href="../modules/_runtime_types_tokens_.html">&quot;runtime/types/tokens&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_engine_types_engine_.enginecall.html" class="tsd-kind-icon">Engine<wbr>Call</a>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_runtime_types_tokens_.token.html" class="tsd-kind-icon">Token</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_engine_types_engine_.enginecommands.html" class="tsd-kind-icon">Engine<wbr>Commands</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_engine_types_engine_.engineeditoptions.html" class="tsd-kind-icon">Engine<wbr>Edit<wbr>Options</a>
+						<a href="_runtime_types_tokens_.keywords.html" class="tsd-kind-icon">Keywords</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_engine_types_engine_.engineinstance.html" class="tsd-kind-icon">Engine<wbr>Instance</a>
+						<a href="_runtime_types_tokens_.tokencontext.html" class="tsd-kind-icon">Token<wbr>Context</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_engine_types_engine_.engineinstance.html#currentchannel" class="tsd-kind-icon">current<wbr>Channel</a>
+								<a href="_runtime_types_tokens_.tokencontext.html#index" class="tsd-kind-icon">index</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_engine_types_engine_.engineinstance.html#currentguild" class="tsd-kind-icon">current<wbr>Guild</a>
+								<a href="_runtime_types_tokens_.tokencontext.html#keyword" class="tsd-kind-icon">keyword</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_engine_types_engine_.engineinstance.html#discordtoken" class="tsd-kind-icon">discord<wbr>Token</a>
+								<a href="_runtime_types_tokens_.tokencontext.html#token" class="tsd-kind-icon">token</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_runtime_types_tokens_.tokencontext.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_engine_types_engine_.enginelistenoptions.html" class="tsd-kind-icon">Engine<wbr>Listen<wbr>Options</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

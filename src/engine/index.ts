@@ -31,7 +31,7 @@ class Instance implements EngineInstance {
 }
 
 /** Engine error type used to throw errors when the engine fails */
-class EngineError extends Error {
+export class EngineError extends Error {
     /** The engine command */
     command: keyof EngineCommands;
     /** Client state boolean */
@@ -59,7 +59,7 @@ class EngineError extends Error {
 }
 
 /** discord-cli engine class */
-export default class Engine {
+export class Engine {
     /** The Discord.Client instance used with the engine */
     client: Client;
     /** The discord bot token to use with the client */
@@ -77,6 +77,15 @@ export default class Engine {
         this.client = new Client();
         this.discordToken = discordToken;
         this.instance = new Instance(discordToken);
+    }
+
+    /** Initializes discord instance */
+    private async login (discordToken?: string): Promise<void> {
+        try {
+            await this.client.login(discordToken || this.discordToken);
+        } catch (error) {
+            throw new EngineError('login', this, 'Invalid Discord Token');
+        }
     }
 
     /**
@@ -109,11 +118,13 @@ export default class Engine {
      * @param args - Arguments needed by the command
      */
     async execute<K extends keyof EngineCommands> (command: K, ...args: EngineCommands[K] ): Promise<any> {
-        if (!this.client.token) {
-            await this.client.login(this.discordToken);
-        }
-
         return new Promise((resolve, reject) => {
+            if (command === 'login') {
+                this.login(args[0] as string).catch(reject);
+            } else if (!this.client.token) {
+                this.login().catch(reject);
+            }
+
             switch (command) {
                 case 'selectGuild': this.selectGuild(args[0] as string).then(resolve).catch(reject); break;
                 case 'selectChannel': this.selectChannel(args[0] as string).then(resolve).catch(reject); break;
@@ -213,7 +224,7 @@ export default class Engine {
      */
     async showChannels (search?: string): Promise<Array<GuildChannel>> {
         if (!this.client || !this.instance.currentGuild) throw new EngineError('showChannels', this);
-        const channels = await showChannels(this.instance.currentGuild, search);
+        const channels = showChannels(this.instance.currentGuild, search);
         return channels;
     }
 
@@ -223,7 +234,7 @@ export default class Engine {
      */
     async showMembers (search?: string): Promise<Array<GuildMember>> {
         if (!this.client || !this.instance.currentGuild) throw new EngineError('showChannels', this);
-        const channels = await showMembers(this.instance.currentGuild, search);
+        const channels = showMembers(this.instance.currentGuild, search);
         return channels;
     }
 

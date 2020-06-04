@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;engine/controllers/updatePresence&quot; | discord-query-lang</title>
+	<title>SemanticAST | discord-query-lang</title>
 	<meta name="description" content="Documentation for discord-query-lang">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,67 +56,80 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_engine_controllers_updatepresence_.html">&quot;engine/controllers/updatePresence&quot;</a>
+					<a href="../modules/_runtime_types_ast_.html">&quot;runtime/types/ast&quot;</a>
+				</li>
+				<li>
+					<a href="_runtime_types_ast_.semanticast.html">SemanticAST</a>
 				</li>
 			</ul>
-			<h1>Module &quot;engine/controllers/updatePresence&quot;</h1>
+			<h1>Interface SemanticAST</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Contextual AST Entry</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">SemanticAST</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_engine_controllers_updatepresence_.html#updatepresence" class="tsd-kind-icon">update<wbr>Presence</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_ast_.semanticast.html#command" class="tsd-kind-icon">command</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_ast_.semanticast.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_runtime_types_ast_.semanticast.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="updatepresence" class="tsd-anchor"></a>
-					<h3>update<wbr>Presence</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Presence<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Client</span>, presence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PresenceData</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Presence</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/controllers/updatePresence.ts#L8">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/updatePresence.ts:8</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Updates discord bot presence</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>client: <span class="tsd-signature-type">Client</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Discord client instance</p>
-									</div>
-								</li>
-								<li>
-									<h5>presence: <span class="tsd-signature-type">PresenceData</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Discord PresenceData object that overwrites the discord bots current precence</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Presence</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="command" class="tsd-anchor"></a>
+					<h3>command</h3>
+					<div class="tsd-signature tsd-kind-icon">command<span class="tsd-signature-symbol">:</span> <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/ast.ts:21</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="target" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> target</h3>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_runtime_types_ast_.annotatedvalue.html" class="tsd-signature-type">AnnotatedValue</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/ast.ts:22</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="values" class="tsd-anchor"></a>
+					<h3>values</h3>
+					<div class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_runtime_types_ast_.annotatedvalue.html" class="tsd-signature-type">AnnotatedValue</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/types/ast.ts:23</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -127,15 +140,36 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_engine_controllers_updatepresence_.html">&quot;engine/controllers/update<wbr>Presence&quot;</a>
+						<a href="../modules/_runtime_types_ast_.html">&quot;runtime/types/ast&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_engine_controllers_updatepresence_.html#updatepresence" class="tsd-kind-icon">update<wbr>Presence</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_runtime_types_ast_.astnode.html" class="tsd-kind-icon">ASTNode</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_runtime_types_ast_.annotatedvalue.html" class="tsd-kind-icon">Annotated<wbr>Value</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_runtime_types_ast_.semanticast.html" class="tsd-kind-icon">SemanticAST</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_runtime_types_ast_.semanticast.html#command" class="tsd-kind-icon">command</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_runtime_types_ast_.semanticast.html#target" class="tsd-kind-icon">target</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_runtime_types_ast_.semanticast.html#values" class="tsd-kind-icon">values</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
@@ -153,6 +187,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>

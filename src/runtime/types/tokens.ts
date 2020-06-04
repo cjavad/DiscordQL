@@ -23,6 +23,7 @@ export enum Token {
     INCLUDE,
     EXCLUDE,
     FETCH,
+    FROM,
     READ,
     LIMIT,
     BEFORE,
@@ -38,6 +39,14 @@ export enum Token {
     RAW
 }
 
+/** Token context containing information about each token */
+export interface TokenContext {
+    token: Token,
+    index: number,
+    value?: string,
+    keyword?: Token
+}
+
 /** Keywords for identifiers */
 export interface Keywords {
     use: [string],
@@ -45,6 +54,7 @@ export interface Keywords {
     include: [string],
     exclude: [string],
     fetch: [string],
+    from: [string],
     read: [string],
     limit: [number],
     before: [string],

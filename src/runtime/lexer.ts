@@ -1,12 +1,13 @@
 import { Token, Keywords } from './types/tokens';
 
 /** Keywords to Token translation object */
-const keywords = {
+export const keywords = {
     use: Token.USE,
     listen: Token.LISTEN,
     include: Token.INCLUDE,
     exclude: Token.EXCLUDE,
     fetch: Token.FETCH,
+    from: Token.FROM,
     read: Token.READ,
     limit: Token.LIMIT,
     before: Token.BEFORE,
@@ -22,61 +23,8 @@ const keywords = {
     raw: Token.RAW
 };
 
-/**
- * Returns true if the character is a whitespace
- * @param char - character to check
- */
-function isWhite (char: string): boolean {
-    const a = char.charCodeAt(0);
-    return a === 32 || (9 <= a && a <= 13);
-}
-
-/**
- * Checks if character is alpha
- * @param char - character to check
- */
-function isAlpha (char: string): boolean {
-    const code = char.charCodeAt(0);
-    if (((code >= 65) && (code <= 90)) || ((code >= 97) && (code <= 122))) {
-        return true;
-    }
-    return false;
-}
-
-/**
- * Checks if the charcter is a digit
- * @param char - character to check
- */
-function isDigit (char: string): boolean {
-    const code = char.charCodeAt(0);
-    if ((code >= 48) && (code <= 57)) {
-        return true;
-    }
-    return false;
-}
-
-/**
- * Checks if the charcter is a hexadeximal
- * @param char - character to check
- */
-function isHexDigit (char: string): boolean {
-    const code = char.charCodeAt(0);
-    if (((code >= 48) && (code <= 57)) || ((code >= 65) && (code <= 70)) || ((code >= 97) && (code <= 102))) {
-        return true;
-    }
-    return false;
-}
-
-/**
- * Checks if the charcter is alphanumerical
- * @param char - character to check
- */
-function isAlphaNum (char: string): boolean {
-    return isAlpha(char) || isDigit(char);
-}
-
 /** Lexer class */
-export default class Lexer {
+export class Lexer {
     /** Source to tokenize */
     private src: string;
     /** Source index, or the current character index to lex */
@@ -120,13 +68,12 @@ export default class Lexer {
         this._prev = this.si;
         if (this.si >= this.src.length) return Token.EOF;
         const char = this.src[this.si];
-        if (isWhite(char)) return this.whitespace();
+        if (this.isWhite(char)) return this.whitespace();
         this.si++;
         switch (char) {
             case '#': return this.lineComment();
             case ';': return Token.SEMICOLON;
             case '{': return this.jsonObject('{', '}');
-            case '[': return this.jsonObject('[', ']');
             case '"': case '\'': return this.quotedString(char);
             case 't': if (this.annotation()) return Token.t;
             case 'g': if (this.annotation()) return Token.g;
@@ -136,26 +83,26 @@ export default class Lexer {
             case 'A': if (this.annotation()) return Token.A;
             case 'E': if (this.annotation()) return Token.E;
             case 'M': if (this.annotation()) return Token.M;
-            default: return isDigit(char) ? this.number() : isAlpha(char) ? this.identifier() : Token.ERROR;
+            default: return this.isDigit(char) ? this.number() : this.isAlpha(char) ? this.identifier() : Token.ERROR;
         }
     }
 
     /** Checks if next index is blank or a newline / EOL */
     private annotation (): boolean {
-        return this.src[this.si] ? isWhite(this.src[this.si]) || this.src[this.si] === ';' : true;
+        return this.src[this.si] ? this.isWhite(this.src[this.si]) || this.src[this.si] === ';' : true;
     }
 
     /** Check if index is a whitespace or a newline  */
     private whitespace (): Token {
-        for (; isWhite(this.src[this.si]); ++this.si) {
-            if (this.src[this.si]  === '\n' || this.src[this.si]  === '\r') return Token.NEWLINE;
+        for (; this.isWhite(this.src[this.si]); ++this.si) {
+            if (this.src[this.si] === '\n' || this.src[this.si] === '\r') { this.si++; return Token.NEWLINE; }
         }
         return Token.WHITESPACE;
     }
 
     /** Ignores entire line the comment exists on */
     private lineComment (): Token {
-        this.matchWhile(char => char !== '\r' && char  !== '\n');
+        this.matchWhile(char => char !== '\r' && char !== '\n');
         return Token.COMMENT;
     }
 
@@ -190,6 +137,7 @@ export default class Lexer {
         }
 
         this.matchChar(startKey);
+        this.si--;
         return Token.OBJECT;
     }
 
@@ -205,7 +153,7 @@ export default class Lexer {
         if (this.matchChar('\'')) return '\'';
         if (this.matchChar('\"')) return '\'';
         if (this.matchChar('x') && -1 !== (d1 = this.digit(16)) && -1 !== (d2 = this.digit(16))) return String.fromCharCode(16 * d1 + d2);
-        if (-1 !== (d1 = this.digit(8)) && -1 !== (d2 = this.digit(8)) &&  -1 !== (d3 = this.digit(8))) return String.fromCharCode(64 * d1 + 8 * d2 + d3);
+        if (-1 !== (d1 = this.digit(8)) && -1 !== (d2 = this.digit(8)) && -1 !== (d3 = this.digit(8))) return String.fromCharCode(64 * d1 + 8 * d2 + d3);
         this.si = save;
         return '\\';
     }
@@ -213,24 +161,24 @@ export default class Lexer {
     /** Gets charcode of escaped character by it's base (radix) */
     private digit (radix: number): number {
         const char = this.src[this.si++];
-        const dig = isDigit(char) ? char.charCodeAt(0) - 48 : isHexDigit(char) ? 10 + char.toLowerCase ().charCodeAt(0) - 97 : 99;
+        const dig = this.isDigit(char) ? char.charCodeAt(0) - 48 : this.isHexDigit(char) ? 10 + char.toLowerCase().charCodeAt(0) - 97 : 99;
         return (dig < radix) ? dig : -1;
     }
 
     /** Finds entire int or float value and sets in values */
     private number (): Token {
         --this.si;
-        this.matchWhile(isDigit);
-        if (this.matchChar('.')) this.matchWhile(isDigit);
-        if (this.src[this.si - 1]  === '.') --this.si;
+        this.matchWhile(this.isDigit);
+        if (this.matchChar('.')) this.matchWhile(this.isDigit);
+        if (this.src[this.si - 1] === '.') --this.si;
         this.setValue();
         return Token.NUMBER;
     }
 
     /** Finds entire keyword and sets in keywords */
     private identifier (): Token {
-        this.matchWhile(char => isAlphaNum(char) || char  === '_');
-        this.matchIf(char => char  === '!' || char  === '?');
+        this.matchWhile(char => this.isAlphaNum(char) || char === '_');
+        this.matchIf(char => char === '!' || char === '?');
         this.setValue();
         const keyword: Token = keywords[this._value.toLowerCase() as keyof Keywords];
         this._keyword = keyword ? keyword : Token.ERROR;
@@ -263,5 +211,54 @@ export default class Lexer {
     /** Set value to start index (previous) and current index */
     private setValue (): void {
         this._value = this.src.substring(this._prev, this.si);
+    }
+
+    /**
+    * Returns true if the character is a whitespace
+    * @param char - character to check
+    */
+    public isWhite (char: string): boolean {
+        if (!char) return false;
+        const a = char.charCodeAt(0);
+        return a === 32 || (9 <= a && a <= 13);
+    }
+
+    /**
+     * Checks if character is alpha
+     * @param char - character to check
+     */
+    public isAlpha (char: string): boolean {
+        if (!char) return false;
+        const code = char.charCodeAt(0);
+        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+    }
+
+    /**
+     * Checks if the charcter is a digit
+     * @param char - character to check
+     */
+    public isDigit (char: string): boolean {
+        if (!char) return false;
+        const code = char.charCodeAt(0);
+        return code >= 48 && code <= 57;
+    }
+
+    /**
+     * Checks if the charcter is a hexadeximal
+     * @param char - character to check
+     */
+    public isHexDigit (char: string): boolean {
+        if (!char) return false;
+        const code = char.charCodeAt(0);
+        return (code >= 48 && code <= 57) || (code >= 65 && code <= 70) || (code >= 97 && code <= 102);
+    }
+
+    /**
+     * Checks if the charcter is alphanumerical
+     * @param char - character to check
+     */
+    public isAlphaNum (char: string): boolean {
+        if (!char) return false;
+        return this.isAlpha(char) || this.isDigit(char);
     }
 }

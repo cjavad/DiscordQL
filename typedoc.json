@@ -3,7 +3,5 @@
     "target": "ES6",
     "inputFiles": ["./src"],
     "readme": "README.md",
-    "out":"docs",
-    "exclude": "**/node_modules/**",
-    "excludePrivate": "true"
+    "out":"docs"
 }

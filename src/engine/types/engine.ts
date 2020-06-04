@@ -3,6 +3,7 @@ import { Event } from './listener';
 
 /** interface with expected input values for each EngineCommand command */
 export interface EngineCommands {
+    login: [string],
     selectGuild: [string],
     selectChannel: [string],
     fetchGuild: [string],

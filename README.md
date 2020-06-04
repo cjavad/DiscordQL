@@ -2,6 +2,8 @@
 
 You ever wanted to browse your discord server from a terminal? Look no further discord-cli aims to be a CLI interface with your discord bot.
 
+discord-cli consists of 2 parts, the engine and the actually query language. The engine is found in src/engine and is also documented in docs and on [pages](https://cjavad.github.io/discord-cli), the query language low level parsers and lexer sits in src/runtime and the top level src files are the actual runners and cli implementations.
+
 ## Language specifications
 
 discord-cli is built on top of @discord-cli/engine and supports all functions the former mentioned does.
@@ -67,11 +69,11 @@ Some data types are implicit given a certain keyword but some keywords can take 
 | c        | channelID   | string{18}             | "228666916018118541"c                                            |
 | m        | messageID   | string{18}             | "343341358242773387"m                                            |
 | u        | userID      | string{18}             | "382158480187811123"u                                            |
-| A        | attachment  | [string, URI or data]  | ["filename.ext", "./path/to/file.jpg" or "filedata"]             |
-| "" or E  | embed*      | Embed (JSON)           | {"title": "Hello World!", "url": "https://example.com"}E         |
-| " " or M | text**      | string                 | "My text string" or "My explicist text string"M                  |
+| A*       | attachment  | File URI               | "/path/to/file.ext"A                                             |
+| E*       | embed       | Embed (JSON)           | {"title": "Hello World!", "url": "https://example.com"}          |
+| **       | text        | string                 | "My text string" or "My explicist text string"                   |
 
-\* `embed` can be explicit since it's the only object passed to the `SEND` and `EDIT` keywords.
+\* `embed` / `attachment` can be explicit since it's the only object passed to the `SEND` and `EDIT` keywords but `A` is required if you pass only the string.
 
 \*\* `text` is always implicict due to it's simple nature but for compatibility sake also be used explicitly
 
@@ -104,6 +106,7 @@ Allowing keywords to take multiple arguments until it's terminated by either a n
 | INCLUDE  | LISTEN        | YES        | string                   | YES (?*)           |
 | EXCLUDE  | LISTEN        | YES        | string                   | YES (?*)           |
 | FETCH    |               |            | [g] / [c] / [m] / [u]    | YES (1)            |
+| FROM     | FETCH         | YES        | [g] / [c]                | YES (1)            |
 | READ     |               |            | [] / [c]                 | NO (1)             |
 | LIMIT    | READ / DELETE | YES        | number                   | YES (1)            |
 | BEFORE   | READ / DELETE | YES        | [m]                      | YES (1)            |
@@ -251,6 +254,11 @@ For the example sake i've repeated the same message 3 times but it's to demonstr
 DELETE "343341358242773387"m "343341358242773387"m "343341358242773387"m;
 ```
 
+```py
+DELETE "343341358242773387"m "343341358242773387"m "343341358242773387"m IN "228666916018118541"c;
+```
+
+
 Then it supports a `READ` like approach.
 
 ```py
@@ -283,7 +291,7 @@ Using the same message options building method as `SEND` just instead by specifi
 `EDIT` overwrites so no further issues are created.
 
 ```py
-EDIT "343341358242773387"m WITH "Next message text" {"title":"embed override"}E;
+EDIT "343341358242773387"m WITH "Next message text" {"title":"embed override"};
 ```
 
 ### `SHOW`

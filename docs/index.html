@@ -68,6 +68,7 @@
 					<h1>discord-cli</h1>
 				</a>
 				<p>You ever wanted to browse your discord server from a terminal? Look no further discord-cli aims to be a CLI interface with your discord bot.</p>
+				<p>discord-cli consists of 2 parts, the engine and the actually query language. The engine is found in src/engine and is also documented in docs and on <a href="https://cjavad.github.io/discord-cli">pages</a>, the query language low level parsers and lexer sits in src/runtime and the top level src files are the actual runners and cli implementations.</p>
 				<a href="#language-specifications" id="language-specifications" style="color: inherit; text-decoration: none;">
 					<h2>Language specifications</h2>
 				</a>
@@ -161,25 +162,25 @@
 							<td align="right">&quot;382158480187811123&quot;u</td>
 						</tr>
 						<tr>
-							<td align="center">A</td>
+							<td align="center">A*</td>
 							<td align="center">attachment</td>
-							<td align="center">[string, URI or data]</td>
-							<td align="right">[&quot;filename.ext&quot;, &quot;./path/to/file.jpg&quot; or &quot;filedata&quot;]</td>
+							<td align="center">File URI</td>
+							<td align="right">&quot;/path/to/file.ext&quot;A</td>
 						</tr>
 						<tr>
-							<td align="center">&quot;&quot; or E</td>
-							<td align="center">embed*</td>
+							<td align="center">E*</td>
+							<td align="center">embed</td>
 							<td align="center">Embed (JSON)</td>
-							<td align="right">{&quot;title&quot;: &quot;Hello World!&quot;, &quot;url&quot;: &quot;<a href="https://example.com&quot;%7DE">https://example.com&quot;}E</a></td>
+							<td align="right">{&quot;title&quot;: &quot;Hello World!&quot;, &quot;url&quot;: &quot;<a href="https://example.com&quot;%7D">https://example.com&quot;}</a></td>
 						</tr>
 						<tr>
-							<td align="center">&quot; &quot; or M</td>
-							<td align="center">text**</td>
+							<td align="center">**</td>
+							<td align="center">text</td>
 							<td align="center">string</td>
-							<td align="right">&quot;My text string&quot; or &quot;My explicist text string&quot;M</td>
+							<td align="right">&quot;My text string&quot; or &quot;My explicist text string&quot;</td>
 						</tr>
 				</tbody></table>
-				<p>* <code>embed</code> can be explicit since it&#39;s the only object passed to the <code>SEND</code> and <code>EDIT</code> keywords.</p>
+				<p>* <code>embed</code> / <code>attachment</code> can be explicit since it&#39;s the only object passed to the <code>SEND</code> and <code>EDIT</code> keywords but <code>A</code> is required if you pass only the string.</p>
 				<p>** <code>text</code> is always implicict due to it&#39;s simple nature but for compatibility sake also be used explicitly</p>
 				<a href="#general-syntax" id="general-syntax" style="color: inherit; text-decoration: none;">
 					<h2>General Syntax</h2>
@@ -247,6 +248,13 @@
 							<td align="center"></td>
 							<td align="center"></td>
 							<td align="center">[g] / [c] / [m] / [u]</td>
+							<td align="center">YES (1)</td>
+						</tr>
+						<tr>
+							<td align="left">FROM</td>
+							<td align="center">FETCH</td>
+							<td align="center">YES</td>
+							<td align="center">[g] / [c]</td>
 							<td align="center">YES (1)</td>
 						</tr>
 						<tr>
@@ -407,6 +415,7 @@ USE <span class="hljs-string">"228666916018118541"</span>c;</code></pre>
 				<p>The <code>DELETE</code> keyword has to input modes. First is using a normal single message deletion approach:</p>
 				<p>For the example sake i&#39;ve repeated the same message 3 times but it&#39;s to demonstrate the ability to specify multiple messages.</p>
 				<pre><code class="language-py">DELETE <span class="hljs-string">"343341358242773387"</span>m <span class="hljs-string">"343341358242773387"</span>m <span class="hljs-string">"343341358242773387"</span>m;</code></pre>
+				<pre><code class="language-py">DELETE <span class="hljs-string">"343341358242773387"</span>m <span class="hljs-string">"343341358242773387"</span>m <span class="hljs-string">"343341358242773387"</span>m IN <span class="hljs-string">"228666916018118541"</span>c;</code></pre>
 				<p>Then it supports a <code>READ</code> like approach.</p>
 				<pre><code class="language-py">DELETE <span class="hljs-string">"228666916018118541"</span>c LIMIT <span class="hljs-number">1</span> BEFORE <span class="hljs-string">"343341358242773387"</span>m AFTER <span class="hljs-string">"343341358242773387"</span>m AROUND <span class="hljs-string">"343341358242773387"</span>m;</code></pre>
 				<p>Where again you can play around with the values until you can delete your satisifed amount of messages.</p>
@@ -425,7 +434,7 @@ USE <span class="hljs-string">"228666916018118541"</span>c;</code></pre>
 				<p>Editting previous messages (only messages sent with the current bot) is a help feature to correct mistakes or change previous content. <code>EDIT</code>provides easy and extensible keyword to edit discord messages sent by a bot user.</p>
 				<p>Using the same message options building method as <code>SEND</code> just instead by specifing a single message in the <code>instance.currentChannel</code>.
 				<code>EDIT</code> overwrites so no further issues are created.</p>
-				<pre><code class="language-py">EDIT <span class="hljs-string">"343341358242773387"</span>m WITH <span class="hljs-string">"Next message text"</span> {<span class="hljs-string">"title"</span>:<span class="hljs-string">"embed override"</span>}E;</code></pre>
+				<pre><code class="language-py">EDIT <span class="hljs-string">"343341358242773387"</span>m WITH <span class="hljs-string">"Next message text"</span> {<span class="hljs-string">"title"</span>:<span class="hljs-string">"embed override"</span>};</code></pre>
 				<a href="#show" id="show" style="color: inherit; text-decoration: none;">
 					<h3><code>SHOW</code></h3>
 				</a>
@@ -515,7 +524,19 @@ USE <span class="hljs-string">"228666916018118541"</span>c;</code></pre>
 						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/_runner_.html">&quot;runner&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_index_.html">&quot;runtime/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/_runtime_lexer_.html">&quot;runtime/lexer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_parser_.html">&quot;runtime/parser&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_types_ast_.html">&quot;runtime/types/ast&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_runtime_types_tokens_.html">&quot;runtime/types/tokens&quot;</a>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EngineError | discord-query-lang</title>
+	<title>ParserError | discord-query-lang</title>
 	<meta name="description" content="Documentation for discord-query-lang">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_engine_index_.html">&quot;engine/index&quot;</a>
+					<a href="../modules/_runtime_parser_.html">&quot;runtime/parser&quot;</a>
 				</li>
 				<li>
-					<a href="_engine_index_.engineerror.html">EngineError</a>
+					<a href="_runtime_parser_.parsererror.html">ParserError</a>
 				</li>
 			</ul>
-			<h1>Class EngineError</h1>
+			<h1>Class ParserError</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Engine error type used to throw errors when the engine fails</p>
+						<p>Error class for parser errors</p>
 					</div>
 				</div>
 			</section>
@@ -83,7 +83,7 @@
 						<a href="_engine_index_.engineerror.html#error" class="tsd-signature-type">Error</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">EngineError</span>
+								<span class="target">ParserError</span>
 							</li>
 						</ul>
 					</li>
@@ -96,20 +96,17 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_engine_index_.engineerror.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_runtime_parser_.parsererror.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_index_.engineerror.html#channelselected" class="tsd-kind-icon">channel<wbr>Selected</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_index_.engineerror.html#clientconnected" class="tsd-kind-icon">client<wbr>Connected</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_index_.engineerror.html#command" class="tsd-kind-icon">command</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_index_.engineerror.html#guildselected" class="tsd-kind-icon">guild<wbr>Selected</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_engine_index_.engineerror.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_engine_index_.engineerror.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_engine_index_.engineerror.html#stack" class="tsd-kind-icon">stack</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_engine_index_.engineerror.html#error" class="tsd-kind-icon">Error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_runtime_parser_.parsererror.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_runtime_parser_.parsererror.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_runtime_parser_.parsererror.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_runtime_parser_.parsererror.html#stack" class="tsd-kind-icon">stack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_runtime_parser_.parsererror.html#error" class="tsd-kind-icon">Error</a></li>
 							</ul>
 						</section>
 					</div>
@@ -121,48 +118,40 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Engine<wbr>Error<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_engine_types_engine_.enginecommands.html" class="tsd-signature-type">EngineCommands</a>, engine<span class="tsd-signature-symbol">: </span><a href="_engine_index_.engine.html" class="tsd-signature-type">Engine</a>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_engine_index_.engineerror.html" class="tsd-signature-type">EngineError</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Parser<wbr>Error<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_runtime_parser_.parsererror.html" class="tsd-signature-type">ParserError</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/index.ts#L42">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/index.ts:42</a></li>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:35</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates EngineError</p>
+									<p>Creates error for parsing errors.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>command: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_engine_types_engine_.enginecommands.html" class="tsd-signature-type">EngineCommands</a></h5>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The EngineCommands command the error occured in</p>
+											<p>Index in source where error occurred</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5>engine: <a href="_engine_index_.engine.html" class="tsd-signature-type">Engine</a></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The Engine instance that failed</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Error arguments passed to super()</p>
+											<p>Additional error args.</p>
 										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_engine_index_.engineerror.html" class="tsd-signature-type">EngineError</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_runtime_parser_.parsererror.html" class="tsd-signature-type">ParserError</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -170,62 +159,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="channelselected" class="tsd-anchor"></a>
-					<h3>channel<wbr>Selected</h3>
-					<div class="tsd-signature tsd-kind-icon">channel<wbr>Selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="index" class="tsd-anchor"></a>
+					<h3>index</h3>
+					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/index.ts#L42">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/index.ts:42</a></li>
+							<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:35</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Instance.currentChannel boolean</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="clientconnected" class="tsd-anchor"></a>
-					<h3>client<wbr>Connected</h3>
-					<div class="tsd-signature tsd-kind-icon">client<wbr>Connected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/index.ts#L38">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/index.ts:38</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Client state boolean</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="command" class="tsd-anchor"></a>
-					<h3>command</h3>
-					<div class="tsd-signature tsd-kind-icon">command<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_engine_types_engine_.enginecommands.html" class="tsd-signature-type">EngineCommands</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/index.ts#L36">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/index.ts:36</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The engine command</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="guildselected" class="tsd-anchor"></a>
-					<h3>guild<wbr>Selected</h3>
-					<div class="tsd-signature tsd-kind-icon">guild<wbr>Selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/98d530a/src/engine/index.ts#L40">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/index.ts:40</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Instance.currentGuild boolean</p>
+							<p>Index in source where error occurred</p>
 						</div>
 					</div>
 				</section>
@@ -281,54 +225,48 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_engine_index_.html">&quot;engine/index&quot;</a>
+						<a href="../modules/_runtime_parser_.html">&quot;runtime/parser&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_engine_index_.engine.html" class="tsd-kind-icon">Engine</a>
+						<a href="_runtime_parser_.context.html" class="tsd-kind-icon">Context</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_runtime_parser_.node.html" class="tsd-kind-icon">Node</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_runtime_parser_.parser.html" class="tsd-kind-icon">Parser</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="_engine_index_.engineerror.html" class="tsd-kind-icon">Engine<wbr>Error</a>
+						<a href="_runtime_parser_.parsererror.html" class="tsd-kind-icon">Parser<wbr>Error</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_engine_index_.engineerror.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_runtime_parser_.parsererror.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_engine_index_.engineerror.html#channelselected" class="tsd-kind-icon">channel<wbr>Selected</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_engine_index_.engineerror.html#clientconnected" class="tsd-kind-icon">client<wbr>Connected</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_engine_index_.engineerror.html#command" class="tsd-kind-icon">command</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_engine_index_.engineerror.html#guildselected" class="tsd-kind-icon">guild<wbr>Selected</a>
+								<a href="_runtime_parser_.parsererror.html#index" class="tsd-kind-icon">index</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_engine_index_.engineerror.html#message" class="tsd-kind-icon">message</a>
+								<a href="_runtime_parser_.parsererror.html#message" class="tsd-kind-icon">message</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_engine_index_.engineerror.html#name" class="tsd-kind-icon">name</a>
+								<a href="_runtime_parser_.parsererror.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_engine_index_.engineerror.html#stack" class="tsd-kind-icon">stack</a>
+								<a href="_runtime_parser_.parsererror.html#stack" class="tsd-kind-icon">stack</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="_engine_index_.engineerror.html#error" class="tsd-kind-icon">Error</a>
+								<a href="_runtime_parser_.parsererror.html#error" class="tsd-kind-icon">Error</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_engine_index_.instance.html" class="tsd-kind-icon">Instance</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
