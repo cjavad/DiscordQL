@@ -26,7 +26,7 @@ export interface EngineCommands {
 
 /** Engine#instance inferface with current Engine variables */
 export interface EngineInstance {
-    discordToken: string,
+    discordToken?: string,
     currentGuild?: Guild,
     currentChannel?: TextChannel | DMChannel
 }

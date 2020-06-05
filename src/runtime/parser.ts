@@ -11,7 +11,7 @@ export class Node implements ASTNode {
      * @param annotation - annotation token attached to the value
      * @param children - Nested nodes with a relation
      */
-    constructor (public token: Token, public value?: string, public keyword?: boolean, public annotation?: Token, public children: Array<ASTNode> = []) {
+    constructor (public index: number, public token: Token, public value?: string, public keyword?: boolean, public annotation?: Token, public children: Array<ASTNode> = []) {
 
     }
 }
@@ -30,7 +30,7 @@ export class Context implements TokenContext {
 }
 
 /** Error class for parser errors */
-export class ParserError extends Error {
+export class ParserError extends SyntaxError {
     /** Index in source where error occurred */
     index: number;
 
@@ -94,13 +94,13 @@ export class Parser {
     private generate (): void {
         this._tokens.forEach((statement: Array<TokenContext>) => {
             if (statement.length && this.isSeperate(statement[0].token)) {
-                const node = new Node(statement[0].token);
+                const node = new Node(statement[0].index, statement[0].token);
                 node.keyword = true;
                 node.value = statement[0].value;
 
                 for (let i = 1; i < statement.length; i++) {
                     if (this.hasValue(statement[i].token)) {
-                        node.children.push(new Node(statement[i].token, statement[i].value, false));
+                        node.children.push(new Node(statement[i].index, statement[i].token, statement[i].value, false));
                         if (statement[i + 1] && this.isAnnotation(statement[i + 1].token)) {
                             node.children[node.children.length - 1].annotation = statement[i + 1].token;
                             i = i + 1;
@@ -125,12 +125,12 @@ export class Parser {
      * @param startIndex - Index to start looking for values + annotations
      */
     private keywordValuesAnnotations (statement: Array<TokenContext>, startIndex: number): [Node, number] {
-        const node = new Node(statement[startIndex].token, statement[startIndex].value, true);
+        const node = new Node(statement[startIndex].index, statement[startIndex].token, statement[startIndex].value, true);
         let index = startIndex;
 
         for (; index < statement.length;) {
             if (statement[index + 1] && this.hasValue(statement[index + 1].token)) {
-                node.children.push(new Node(statement[index + 1].token, statement[index + 1].value, false));
+                node.children.push(new Node(statement[index + 1].index, statement[index + 1].token, statement[index + 1].value, false));
                 if (statement[index + 2] && this.isAnnotation(statement[index + 2].token)) {
                     node.children[node.children.length - 1].annotation = statement[index + 2].token;
                     index = index + 1;

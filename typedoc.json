@@ -3,5 +3,6 @@
     "target": "ES6",
     "inputFiles": ["./src"],
     "readme": "README.md",
-    "out":"docs"
+    "out":"docs",
+    "disableOutputCheck": true
 }

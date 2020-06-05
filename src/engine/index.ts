@@ -25,7 +25,7 @@ class Instance implements EngineInstance {
      * @param currentGuild - Instance guild
      * @param currentChannel - Instance channel
      */
-    constructor (public discordToken: string, public currentGuild?: Guild, public currentChannel?: TextChannel | DMChannel) {
+    constructor (public discordToken?: string, public currentGuild?: Guild, public currentChannel?: TextChannel | DMChannel) {
 
     }
 }
@@ -63,7 +63,7 @@ export class Engine {
     /** The Discord.Client instance used with the engine */
     client: Client;
     /** The discord bot token to use with the client */
-    discordToken: string;
+    discordToken?: string;
     /** The EngineInstance containing context variables */
     instance: EngineInstance;
     /** Internal callstack for executeStack */
@@ -73,14 +73,14 @@ export class Engine {
      *  Create Engine
      * @param discordToken - discord bot token
      */
-    constructor (discordToken: string) {
+    constructor (discordToken?: string) {
         this.client = new Client();
         this.discordToken = discordToken;
         this.instance = new Instance(discordToken);
     }
 
     /** Initializes discord instance */
-    private async login (discordToken?: string): Promise<void> {
+    async login (discordToken?: string): Promise<void> {
         try {
             await this.client.login(discordToken || this.discordToken);
         } catch (error) {

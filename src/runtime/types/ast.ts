@@ -2,6 +2,7 @@ import { Token } from './tokens';
 
 /** Node instance for AST */
 export interface ASTNode {
+    index: number,
     token: Token,
     value?: string,
     keyword?: boolean
@@ -11,6 +12,7 @@ export interface ASTNode {
 
 /** Value with token identifiers */
 export interface AnnotatedValue {
+    index: number,
     key: Token,
     value: string,
     annotation?: Token

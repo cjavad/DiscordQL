@@ -106,7 +106,7 @@ export class Lexer {
         return Token.COMMENT;
     }
 
-    /** Finds entire qouted string and places in values */
+    /** Finds entire quoted string and places in values */
     private quotedString (quote: string): Token {
         this._value = '';
         while (this.si < this.src.length && this.src[this.si] !== quote) {
