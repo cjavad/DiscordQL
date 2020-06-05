@@ -1,21 +1,21 @@
 {
   "name": "discord-query-lang",
   "version": "0.0.1",
-  "description": "You ever wanted to browse your discord server from a terminal? Look no further discord-cli aims to be a CLI interface with your discord bot.",
+  "description": "You ever wanted to browse your discord server from a terminal? Look no further discordquery aims to be a CLI interface with your discord bot.",
   "main": "main.js",
   "scripts": {
     "test": "nodemon main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cjavad/discord-cli.git"
+    "url": "git+https://github.com/cjavad/discordquery.git"
   },
   "author": "Javad Asgari Shafique",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/cjavad/discord-cli/issues"
+    "url": "https://github.com/cjavad/discordquery/issues"
   },
-  "homepage": "https://github.com/cjavad/discord-cli#readme",
+  "homepage": "https://github.com/cjavad/discordquery#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@types/node": "^14.0.5",
+    "chalk": "^4.0.0",
     "discord.js": "^12.2.0"
   }
 }

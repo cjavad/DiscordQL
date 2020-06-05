@@ -58,7 +58,7 @@ export class EngineError extends Error {
     }
 }
 
-/** discord-cli engine class */
+/** discordquery engine class */
 export class Engine {
     /** The Discord.Client instance used with the engine */
     client: Client;
