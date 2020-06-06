@@ -1,5 +1,5 @@
 import { Client,  TextChannel, DMChannel, MessageOptions, ChannelLogsQueryOptions,  Guild, Message, PresenceData, User, GuildMember, Presence, GuildChannel } from 'discord.js';
-import { EngineInstance, EngineCommands, EngineCall, EngineListenOptions, EngineEditOptions } from './types/engine';
+import { EngineInstance, EngineCommands, EngineCall, EngineListenOptions, EngineEditOptions } from '../types/engine';
 import fetchGuild from './controllers/fetchGuild';
 import fetchChannel from './controllers/fetchChannel';
 import fetchUser from './controllers/fetchUser';
@@ -16,6 +16,7 @@ import readChannel from './controllers/readChannel';
 import listenClient from './controllers/listenClient';
 import listenGuild from './controllers/listenGuild';
 import listenChannel from './controllers/listenChannel';
+import { EngineError } from './errors';
 
 /** Engine#instance EngineInstance containing context variables */
 class Instance implements EngineInstance {
@@ -27,34 +28,6 @@ class Instance implements EngineInstance {
      */
     constructor (public discordToken?: string, public currentGuild?: Guild, public currentChannel?: TextChannel | DMChannel) {
 
-    }
-}
-
-/** Engine error type used to throw errors when the engine fails */
-export class EngineError extends Error {
-    /** The engine command */
-    command: keyof EngineCommands;
-    /** Client state boolean */
-    clientConnected: boolean;
-    /** Instance.currentGuild boolean */
-    guildSelected: boolean;
-    /** Instance.currentChannel boolean */
-    channelSelected: boolean;
-
-    /**
-     * Creates EngineError
-     * @param command - The EngineCommands command the error occured in
-     * @param engine - The Engine instance that failed
-     * @param params - Error arguments passed to super()
-     */
-    constructor (command: keyof EngineCommands, engine: Engine,  ...params: any) {
-        super(...params);
-        Error.captureStackTrace(this, EngineError);
-        this.name = 'EngineError';
-        this.command = command;
-        this.clientConnected = engine.client.token ? true : false;
-        this.guildSelected = engine.instance.currentGuild ? true : false;
-        this.channelSelected = engine.instance.currentChannel ? true : false;
     }
 }
 
@@ -118,11 +91,11 @@ export class Engine {
      * @param args - Arguments needed by the command
      */
     async execute<K extends keyof EngineCommands> (command: K, ...args: EngineCommands[K] ): Promise<any> {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             if (command === 'login') {
-                this.login(args[0] as string).catch(reject);
+                await this.login(args[0] as string).then(resolve).catch(reject);
             } else if (!this.client.token) {
-                this.login().catch(reject);
+                await this.login().then(resolve).catch(reject);
             }
 
             switch (command) {

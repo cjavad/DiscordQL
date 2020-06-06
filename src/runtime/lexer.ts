@@ -1,4 +1,4 @@
-import { Token, Keywords } from './types/tokens';
+import { Token, Keywords } from '../types/tokens';
 
 /** Keywords to Token translation object */
 export const keywords = {

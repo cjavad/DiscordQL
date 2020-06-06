@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>discord-query-lang</title>
-	<meta name="description" content="Documentation for discord-query-lang">
+	<title>discordquery</title>
+	<meta name="description" content="Documentation for discordquery">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">discord-query-lang</a>
+					<a href="index.html" class="title">discordquery</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>discord-query-lang</h1>
+			<h1>discordquery</h1>
 		</div>
 	</div>
 </header>
@@ -68,8 +68,7 @@
 					<h1>discordquery</h1>
 				</a>
 				<p>You ever wanted to browse your discord server from a terminal? Look no further discordquery aims to be a CLI interface with your discord bot.</p>
-				<p>discordquery consists of 2 parts, the engine and the actually query language. The engine is found in src/engine and is also documented in docs and on <a href="https://cjavad.github.io/discordquery">pages</a>, the query language low level parsers and lexer sits in src/runtime and the top level src files are the actual runners and cli implementations.</p>
-				<p>You can</p>
+				<p>TODO: Commenting, documentation and refractoring the hell out of this code.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -77,6 +76,15 @@
 				<ul>
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_cli_.html">&quot;cli&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_controllers_formatter_.html">&quot;controllers/formatter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_controllers_serializer_.html">&quot;controllers/serializer&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_engine_controllers_deletemessage_.html">&quot;engine/controllers/delete<wbr>Message&quot;</a>
@@ -130,16 +138,49 @@
 						<a href="modules/_engine_controllers_updatepresence_.html">&quot;engine/controllers/update<wbr>Presence&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/_engine_errors_.html">&quot;engine/errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/_engine_index_.html">&quot;engine/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_engine_types_engine_.html">&quot;engine/types/engine&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_engine_types_listener_.html">&quot;engine/types/listener&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kdelete_.html">&quot;runtime/controllers/k<wbr>Delete&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kedit_.html">&quot;runtime/controllers/k<wbr>Edit&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kfetch_.html">&quot;runtime/controllers/k<wbr>Fetch&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_klisten_.html">&quot;runtime/controllers/k<wbr>Listen&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kpresence_.html">&quot;runtime/controllers/k<wbr>Presence&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kread_.html">&quot;runtime/controllers/k<wbr>Read&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_ksend_.html">&quot;runtime/controllers/k<wbr>Send&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kshow_.html">&quot;runtime/controllers/k<wbr>Show&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_kuse_.html">&quot;runtime/controllers/k<wbr>Use&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_target_.html">&quot;runtime/controllers/target&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_controllers_values_.html">&quot;runtime/controllers/values&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_runtime_errors_.html">&quot;runtime/errors&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_runtime_index_.html">&quot;runtime/index&quot;</a>
@@ -151,10 +192,19 @@
 						<a href="modules/_runtime_parser_.html">&quot;runtime/parser&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_runtime_types_ast_.html">&quot;runtime/types/ast&quot;</a>
+						<a href="modules/_types_ast_.html">&quot;types/ast&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_runtime_types_tokens_.html">&quot;runtime/types/tokens&quot;</a>
+						<a href="modules/_types_engine_.html">&quot;types/engine&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_listener_.html">&quot;types/listener&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_serial_.html">&quot;types/serial&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_tokens_.html">&quot;types/tokens&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -171,8 +221,10 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>

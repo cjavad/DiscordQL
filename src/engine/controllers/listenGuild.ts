@@ -1,7 +1,7 @@
 import { Client, Guild, ClientEvents } from 'discord.js';
 import { eventListener } from './listenBase';
-import { Event } from '../types/listener';
-import { EngineListenOptions } from '../types/engine';
+import { Event } from '../../types/listener';
+import { EngineListenOptions } from '../../types/engine';
 
 /**
  * Handles all events from the specified guild, along side with the options.

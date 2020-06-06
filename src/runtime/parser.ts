@@ -1,6 +1,9 @@
 import { Lexer, keywords } from './lexer';
-import { Token, TokenContext, Keywords } from './types/tokens';
-import { ASTNode } from './types/ast';
+import { Token, TokenContext, Keywords } from '../types/tokens';
+import { ASTNode, SemanticAST } from '../types/ast';
+import { DiscordQueryParsingError } from './errors';
+import statementValues from './controllers/values';
+import statementTarget from './controllers/target';
 
 /** Class that creates an abstract syntax three node */
 export class Node implements ASTNode {
@@ -29,28 +32,14 @@ export class Context implements TokenContext {
     }
 }
 
-/** Error class for parser errors */
-export class ParserError extends SyntaxError {
-    /** Index in source where error occurred */
-    index: number;
-
-    /**
-     * Creates error for parsing errors.
-     * @param index - Index in source where error occurred
-     * @param args - Additional error args.
-     */
-    constructor (index: number, ...args: Array<any>) {
-        super(...args);
-        this.index = index;
-    }
-}
-
 /** Parser class that converts tokens into a abstract syntax three */
 export class Parser {
     /** Private tokens array with token context */
     private _tokens: Array<Array<TokenContext>> = [];
     /** Private abstract syntax three */
     private _ast: Array<ASTNode> = [];
+    /** Private contextual (semantic) syntax three */
+    private _semantic: Array<SemanticAST> = [];
 
     /**
      * Convert a lexer and its tokenized output into an abstract syntax three
@@ -64,7 +53,7 @@ export class Parser {
 
         while (next !== Token.EOF) {
             if (next === Token.ERROR) {
-                throw new ParserError(lexer.prev);
+                throw new DiscordQueryParsingError(lexer.prev, Token.ERROR);
             }
             this._tokens[i] = [];
             while (next !== Token.SEMICOLON && next !== Token.EOF) {
@@ -78,6 +67,11 @@ export class Parser {
         }
 
         this.generate();
+        this.context();
+    }
+
+    get semantic (): Array<SemanticAST> {
+        return this._semantic;
     }
 
     /** Expose _ast */
@@ -116,6 +110,17 @@ export class Parser {
         });
     }
 
+    /** Give context to each command and expose as _semantic */
+    private context (): void {
+        for (let i = 0; i < this._ast.length; i++) {
+            this._semantic.push({
+                command: this._ast[i].token,
+                target: statementTarget(this._ast[i], this.keywordOptionals(this._ast[i].token)),
+                values: statementValues(this._ast[i], this.keywordOptionals(this._ast[i].token))
+            });
+        }
+    }
+
     /**
      * Function that takes a statement array and an index to start looking for tokens
      * with values and attach them with annotations if possible. Returns a node for
@@ -142,6 +147,26 @@ export class Parser {
         }
 
         return [node, index];
+    }
+
+    /**
+    * Return linked keywords
+    * @param token - token enum
+    */
+    private keywordOptionals (token: Token): Array<Token> {
+        switch (token) {
+            case Token.USE: return [];
+            case Token.LISTEN: return [Token.INCLUDE, Token.EXCLUDE];
+            case Token.FETCH: return [Token.FROM, Token.IN];
+            case Token.READ: return [Token.LIMIT, Token.BEFORE, Token.AFTER, Token.AROUND];
+            case Token.DELETE: return [Token.LIMIT, Token.BEFORE, Token.AFTER, Token.AROUND, Token.IN];
+            case Token.SEND: return [Token.IN];
+            case Token.EDIT: return [Token.WITH];
+            case Token.SHOW: return [];
+            case Token.PRESENCE: return [];
+            case Token.RAW: return [];
+            default: return [];
+        }
     }
 
     /**

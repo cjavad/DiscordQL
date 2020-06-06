@@ -1,5 +1,7 @@
 # Designing discordquery
 
+TODO: Clean this file.
+
 Some thoughts that went into designing dicord-cli and the query language attached to it. This is the "current" specifications on how the language is parsed and understood by the runtime.
 
 ## Language specifications

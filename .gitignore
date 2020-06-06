@@ -108,3 +108,6 @@ dist
 
 # System files
 .DS_Store
+
+# Compiled typescript
+build

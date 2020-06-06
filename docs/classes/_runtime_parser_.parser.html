@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Parser | discord-query-lang</title>
-	<meta name="description" content="Documentation for discord-query-lang">
+	<title>Parser | discordquery</title>
+	<meta name="description" content="Documentation for discordquery">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">discord-query-lang</a>
+					<a href="../index.html" class="title">discordquery</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -98,6 +98,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#_ast" class="tsd-kind-icon">_ast</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#_semantic" class="tsd-kind-icon">_semantic</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#_tokens" class="tsd-kind-icon">_tokens</a></li>
 							</ul>
 						</section>
@@ -105,17 +106,20 @@
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#ast" class="tsd-kind-icon">ast</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#semantic" class="tsd-kind-icon">semantic</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#tokens" class="tsd-kind-icon">tokens</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#context" class="tsd-kind-icon">context</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#generate" class="tsd-kind-icon">generate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#hasvalue" class="tsd-kind-icon">has<wbr>Value</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#isannotation" class="tsd-kind-icon">is<wbr>Annotation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#iskeyword" class="tsd-kind-icon">is<wbr>Keyword</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_runtime_parser_.parser.html#isseperate" class="tsd-kind-icon">is<wbr>Seperate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#keywordoptionals" class="tsd-kind-icon">keyword<wbr>Optionals</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_runtime_parser_.parser.html#keywordvaluesannotations" class="tsd-kind-icon">keyword<wbr>Values<wbr>Annotations</a></li>
 							</ul>
 						</section>
@@ -134,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L53">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L42">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -165,10 +169,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_ast" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _ast</h3>
-					<div class="tsd-signature tsd-kind-icon">_ast<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_ast_.astnode.html" class="tsd-signature-type">ASTNode</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
+					<div class="tsd-signature tsd-kind-icon">_ast<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_ast_.astnode.html" class="tsd-signature-type">ASTNode</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L53">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L40">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,12 +182,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_tokens" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _tokens</h3>
-					<div class="tsd-signature tsd-kind-icon">_tokens<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
+					<a name="_semantic" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _semantic</h3>
+					<div class="tsd-signature tsd-kind-icon">_semantic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_ast_.semanticast.html" class="tsd-signature-type">SemanticAST</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L51">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L42">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:42</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Private contextual (semantic) syntax three</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_tokens" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _tokens</h3>
+					<div class="tsd-signature tsd-kind-icon">_tokens<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L38">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -199,13 +218,13 @@
 					<a name="ast" class="tsd-anchor"></a>
 					<h3>ast</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> ast<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_ast_.astnode.html" class="tsd-signature-type">ASTNode</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> ast<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_ast_.astnode.html" class="tsd-signature-type">ASTNode</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L84">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L78">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +232,24 @@
 									<p>Expose _ast</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_ast_.astnode.html" class="tsd-signature-type">ASTNode</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_ast_.astnode.html" class="tsd-signature-type">ASTNode</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="semantic" class="tsd-anchor"></a>
+					<h3>semantic</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> semantic<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_ast_.semanticast.html" class="tsd-signature-type">SemanticAST</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L73">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:73</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_ast_.semanticast.html" class="tsd-signature-type">SemanticAST</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -221,13 +257,13 @@
 					<a name="tokens" class="tsd-anchor"></a>
 					<h3>tokens</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> tokens<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> tokens<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L89">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L83">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,13 +271,35 @@
 									<p>Expose _tokens</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="context" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> context</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">context<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L114">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:114</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Give context to each command and expose as _semantic</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="generate" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> generate</h3>
@@ -252,7 +310,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L94">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L88">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,13 +326,13 @@
 					<a name="hasvalue" class="tsd-anchor"></a>
 					<h3>has<wbr>Value</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>Value<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Value<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L159">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L184">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,7 +343,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
+									<h5>token: <a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Token enum</p>
 									</div>
@@ -299,13 +357,13 @@
 					<a name="isannotation" class="tsd-anchor"></a>
 					<h3>is<wbr>Annotation</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Annotation<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Annotation<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L167">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L192">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -316,7 +374,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
+									<h5>token: <a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Token enum</p>
 									</div>
@@ -330,13 +388,13 @@
 					<a name="iskeyword" class="tsd-anchor"></a>
 					<h3>is<wbr>Keyword</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Keyword<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Keyword<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L151">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L176">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:176</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,7 +405,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
+									<h5>token: <a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Token enum</p>
 									</div>
@@ -361,13 +419,13 @@
 					<a name="isseperate" class="tsd-anchor"></a>
 					<h3>is<wbr>Seperate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Seperate<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Seperate<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L175">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:175</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L200">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:200</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,7 +436,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <a href="../enums/_runtime_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
+									<h5>token: <a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Token enum</p>
 									</div>
@@ -389,16 +447,47 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="keywordvaluesannotations" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> keyword<wbr>Values<wbr>Annotations</h3>
+					<a name="keywordoptionals" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> keyword<wbr>Optionals</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">keyword<wbr>Values<wbr>Annotations<span class="tsd-signature-symbol">(</span>statement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span>, startIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="_runtime_parser_.node.html" class="tsd-signature-type">Node</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
+						<li class="tsd-signature tsd-kind-icon">keyword<wbr>Optionals<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/30b64de/src/runtime/parser.ts#L127">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L156">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:156</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return linked keywords</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>token enum</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_types_tokens_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="keywordvaluesannotations" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> keyword<wbr>Values<wbr>Annotations</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">keyword<wbr>Values<wbr>Annotations<span class="tsd-signature-symbol">(</span>statement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span>, startIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="_runtime_parser_.node.html" class="tsd-signature-type">Node</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/45ce1c9/src/runtime/parser.ts#L132">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/parser.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -412,7 +501,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>statement: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_runtime_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>statement: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_tokens_.tokencontext.html" class="tsd-signature-type">TokenContext</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Array of TokenContext that forms a statement</p>
 									</div>
@@ -461,13 +550,22 @@
 								<a href="_runtime_parser_.parser.html#_ast" class="tsd-kind-icon">_ast</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_runtime_parser_.parser.html#_semantic" class="tsd-kind-icon">_semantic</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_runtime_parser_.parser.html#_tokens" class="tsd-kind-icon">_tokens</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_runtime_parser_.parser.html#ast" class="tsd-kind-icon">ast</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_runtime_parser_.parser.html#semantic" class="tsd-kind-icon">semantic</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_runtime_parser_.parser.html#tokens" class="tsd-kind-icon">tokens</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_runtime_parser_.parser.html#context" class="tsd-kind-icon">context</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_runtime_parser_.parser.html#generate" class="tsd-kind-icon">generate</a>
@@ -485,15 +583,15 @@
 								<a href="_runtime_parser_.parser.html#isseperate" class="tsd-kind-icon">is<wbr>Seperate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_runtime_parser_.parser.html#keywordoptionals" class="tsd-kind-icon">keyword<wbr>Optionals</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_runtime_parser_.parser.html#keywordvaluesannotations" class="tsd-kind-icon">keyword<wbr>Values<wbr>Annotations</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_runtime_parser_.parsererror.html" class="tsd-kind-icon">Parser<wbr>Error</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -505,8 +603,10 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

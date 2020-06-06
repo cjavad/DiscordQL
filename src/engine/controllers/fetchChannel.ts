@@ -6,5 +6,5 @@ import { TextChannel, Client, DMChannel } from 'discord.js';
  * @param channelID - Discord channel id of a channel client exists in
  */
 export default async function fetchChannel (client: Client, channelID: string): Promise<TextChannel | DMChannel | undefined> {
-    return (await client.channels.fetch(channelID)) as TextChannel | DMChannel | undefined;
+    return (await (await client.channels.fetch(channelID)).fetch()) as TextChannel | DMChannel | undefined;
 }

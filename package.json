@@ -1,11 +1,17 @@
 {
-  "name": "discord-query-lang",
-  "version": "0.0.1",
+  "name": "discordquery",
+  "version": "0.0.2",
   "description": "You ever wanted to browse your discord server from a terminal? Look no further discordquery aims to be a CLI interface with your discord bot.",
-  "main": "main.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "nodemon main.js"
+    "docs": "typedoc --options ./typedoc.json",
+    "build": "tsc",
+    "test": "mocha -r ts-node/register tests/*.test.ts"
   },
+  "files": [
+    "build/**/*.*",
+    "bin/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cjavad/discordquery.git"
@@ -17,16 +23,25 @@
   },
   "homepage": "https://github.com/cjavad/discordquery#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.11",
+    "@types/yargs": "^15.0.5",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
+    "chai": "^4.2.0",
     "eslint": "^7.1.0",
+    "mocha": "^7.2.0",
     "nodemon": "^2.0.3",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "@types/node": "^14.0.5",
     "chalk": "^4.0.0",
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "yargs": "^15.3.1"
+  },
+  "bin": {
+    "discordquery": "./bin/discordquery"
   }
 }
