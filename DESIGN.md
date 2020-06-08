@@ -64,7 +64,7 @@ Some data types are implicit given a certain keyword but some keywords can take 
 
 | Char     |  Type       |  Expects               | Example                                                          |
 |:--------:|:-----------:|:----------------------:|-----------------------------------------------------------------:|
-| t        | token       | string                 | "MTg-this-IzNzU3OTA5NjA-is.not-DCeFB-a.real-r4DQlO-t0ken-qerT0"t |
+| t        | token       | string                 | "MTgthisaIzNzUa3TA5NjAais.notaDC.eBaarealar4DQlOat0kenaqerT0"t |
 | g        | guildID     | string{18}             | "364140226775784869"g                                            |
 | c        | channelID   | string{18}             | "228666916018118541"c                                            |
 | m        | messageID   | string{18}             | "343341358242773387"m                                            |
@@ -99,27 +99,27 @@ Allowing keywords to take multiple arguments until it's terminated by either a n
 
 ### Syntax Table
 
-| Keyword  | Used with?    | Optional?  | Expects [type]           | Required? (Amount) |
-|:---------|:-------------:|:----------:|:------------------------:|:------------------:|
-| USE      |               |            | [t] / [g] / [c]          | YES (+)            |
-| LISTEN   |               |            | [] / [g] / [c]           | NO (1)             |
-| INCLUDE  | LISTEN        | YES        | string                   | YES (?*)           |
-| EXCLUDE  | LISTEN        | YES        | string                   | YES (?*)           |
-| FETCH    |               |            | [g] / [c] / [m] / [u]    | YES (1)            |
-| FROM     | FETCH         | YES        | [g] / [c]                | YES (1)            |
-| READ     |               |            | [] / [c]                 | NO (1)             |
-| LIMIT    | READ / DELETE | YES        | number                   | YES (1)            |
-| BEFORE   | READ / DELETE | YES        | [m]                      | YES (1)            |
-| AFTER    | READ / DELETE | YES        | [m]                      | YES (1)            |
-| AROUND   | READ / DELETE | YES        | [m]                      | YES (1)            |
-| DELETE   |               |            | [m] or [c]               | YES (+) or NO (1)  |
-| SEND     |               |            | "" / [A] / [E]           | YES (+)            |
-| IN       | SEND          | NO         | [c]                      | YES (1)            |
-| EDIT     |               |            | [m]                      | YES (1)            |
-| WITH     | EDIT          | NO         | "" / [A] / [E]           | YES (+)            |
-| SHOW     |               |            | [] / [g]                 | YES (1)            |
-| PRESENCE |               |            | object                   | YES (1)            |
-| RAW      |               |            | []                       | NO (0)             |
+| Keyword  | Used with?           | Optional?  | Expects [type]           | Required? (Amount) |
+|:---------|:--------------------:|:----------:|:------------------------:|:------------------:|
+| USE      |                      |            | [t] / [g] / [c]          | YES (+)            |
+| LISTEN   |                      |            | [] / [g] / [c]           | NO (1)             |
+| INCLUDE  | LISTEN               | YES        | string                   | YES (+)            |
+| EXCLUDE  | LISTEN               | YES        | string                   | YES (+)            |
+| FETCH    |                      |            | [g] / [c] / [m] / [u]    | YES (1)            |
+| FROM     | FETCH                | YES        | [g] / [c]                | YES (1)            |
+| READ     |                      |            | [] / [c]                 | NO (1)             |
+| LIMIT    | READ / DELETE        | YES        | number                   | YES (1)            |
+| BEFORE   | READ / DELETE        | YES        | [m]                      | YES (1)            |
+| AFTER    | READ / DELETE        | YES        | [m]                      | YES (1)            |
+| AROUND   | READ / DELETE        | YES        | [m]                      | YES (1)            |
+| DELETE   |                      |            | [m] or [c]               | YES (+) or NO (0)  |
+| SEND     |                      |            | "" / [A] / [E]           | YES (+)            |
+| IN       | SEND / EDIT / DELETE | NO         | [c]                      | YES (1)            |
+| EDIT     |                      |            | [m]                      | YES (1)            |
+| WITH     | EDIT                 | NO         | "" / [A] / [E]           | YES (+)            |
+| SHOW     |                      |            | [] / [g]                 | YES (1)            |
+| PRESENCE |                      |            | object                   | YES (1)            |
+| RAW      |                      |            | []                       | NO (0)             |
 
 ## Keyword examples
 
@@ -132,13 +132,13 @@ Hence the keyword `USE` to enable us to select and use the 3 basic Engine variab
 This keyword should be able to set all 3 things at once as so:
 
 ```py
-USE "MTg-this-IzNzU3OTA5NjA-is.not-DCeFB-a.real-r4DQlO-t0ken-qerT0"t "364140226775784869"g "228666916018118541"c;
+USE "MTgthisaIzNzUa3TA5NjAais.notaDC.eBaarealar4DQlOat0kenaqerT0"t "364140226775784869"g "228666916018118541"c;
 ```
 
 Or individually:
 
 ```py
-USE "MTg-this-IzNzU3OTA5NjA-is.not-DCeFB-a.real-r4DQlO-t0ken-qerT0"t;
+USE "MTgthisaIzNzUa3TA5NjAais.notaDC.eBaarealar4DQlOat0kenaqerT0"t;
 USE "364140226775784869"g;
 USE "228666916018118541"c;
 ```
@@ -147,7 +147,7 @@ Or over multiple lines:
 
 ```py
 USE
-"MTg-this-IzNzU3OTA5NjA-is.not-DCeFB-a.real-r4DQlO-t0ken-qerT0"t
+"MTgthisaIzNzUa3TA5NjAais.notaDC.eBaarealar4DQlOat0kenaqerT0"t
 "364140226775784869"g
 "228666916018118541"c;
 ```
@@ -222,6 +222,12 @@ It can also be used to lookup a discord user by their ID, if the current guild i
 FETCH "382158480187811123"u;
 ```
 
+and this for members
+
+```py
+FETCH "382158480187811123"u FROM "364140226775784869"g;
+```
+
 ### `READ`
 
 To expand on `FETCH` and specifically the `FETCH m` method of getting a message, @discordquery/engine also has amazing multi message fetching support sitting under the keyword `READ`.
@@ -258,11 +264,10 @@ DELETE "343341358242773387"m "343341358242773387"m "343341358242773387"m;
 DELETE "343341358242773387"m "343341358242773387"m "343341358242773387"m IN "228666916018118541"c;
 ```
 
-
 Then it supports a `READ` like approach.
 
 ```py
-DELETE "228666916018118541"c LIMIT 1 BEFORE "343341358242773387"m AFTER "343341358242773387"m AROUND "343341358242773387"m;
+DELETE LIMIT 1 BEFORE "343341358242773387"m AFTER "343341358242773387"m AROUND "343341358242773387"m IN "228666916018118541"c;
 ```
 
 Where again you can play around with the values until you can delete your satisifed amount of messages.
@@ -292,6 +297,12 @@ Using the same message options building method as `SEND` just instead by specifi
 
 ```py
 EDIT "343341358242773387"m WITH "Next message text" {"title":"embed override"};
+```
+
+and optionally 
+
+```py
+EDIT "343341358242773387"m WITH "Next message text" {"title":"embed override"} IN "228666916018118541"c;
 ```
 
 ### `SHOW`

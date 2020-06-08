@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;engine/controllers/fetchMember&quot; | discordquery</title>
+	<title>&quot;runtime/controllers/fetch&quot; | discordquery</title>
 	<meta name="description" content="Documentation for discordquery">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_engine_controllers_fetchmember_.html">&quot;engine/controllers/fetchMember&quot;</a>
+					<a href="_runtime_controllers_fetch_.html">&quot;runtime/controllers/fetch&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;engine/controllers/fetchMember&quot;</h1>
+			<h1>Module &quot;runtime/controllers/fetch&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_engine_controllers_fetchmember_.html#fetchguild" class="tsd-kind-icon">fetch<wbr>Guild</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_runtime_controllers_fetch_.html#kfetch" class="tsd-kind-icon">k<wbr>Fetch</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,39 +82,25 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fetchguild" class="tsd-anchor"></a>
-					<h3>fetch<wbr>Guild</h3>
+					<a name="kfetch" class="tsd-anchor"></a>
+					<h3>k<wbr>Fetch</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">fetch<wbr>Guild<span class="tsd-signature-symbol">(</span>guild<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Guild</span>, userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">k<wbr>Fetch<span class="tsd-signature-symbol">(</span>semanticCommand<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_ast_.semanticast.html" class="tsd-signature-type">SemanticAST</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_engine_.enginecall.html" class="tsd-signature-type">EngineCall</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/engine/controllers/fetchMember.ts#L8">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/fetchMember.ts:8</a></li>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/runtime/controllers/fetch.ts:6</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Fetches a member from the specified guild by id</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>guild: <span class="tsd-signature-type">Guild</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Discord guild object of the guild to fetch a member from</p>
-									</div>
-								</li>
-								<li>
-									<h5>userID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Discord user id of a member in guild</p>
-									</div>
+									<h5>semanticCommand: <a href="../interfaces/_types_ast_.semanticast.html" class="tsd-signature-type">SemanticAST</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_engine_.enginecall.html" class="tsd-signature-type">EngineCall</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -127,14 +113,14 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_engine_controllers_fetchmember_.html">&quot;engine/controllers/fetch<wbr>Member&quot;</a>
+						<a href="_runtime_controllers_fetch_.html">&quot;runtime/controllers/fetch&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_engine_controllers_fetchmember_.html#fetchguild" class="tsd-kind-icon">fetch<wbr>Guild</a>
+						<a href="_runtime_controllers_fetch_.html#kfetch" class="tsd-kind-icon">k<wbr>Fetch</a>
 					</li>
 				</ul>
 			</nav>

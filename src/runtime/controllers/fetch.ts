@@ -16,6 +16,7 @@ export default function kFetch (semanticCommand: SemanticAST): Array<EngineCall>
         }
     }
 
+    if (!semanticCommand.values.length) throw new DiscordQueryParsingError(semanticCommand.command.index, semanticCommand.command.key);
     if (semanticCommand.values.length) {
         for (let i = 0; i < semanticCommand.values.length; i++) {
             if (semanticCommand.values[i].annotation === Token.g) {
@@ -29,7 +30,7 @@ export default function kFetch (semanticCommand: SemanticAST): Array<EngineCall>
                 callstack.push({ command: 'readChannel', args: [{ limit: 1, around: semanticCommand.values[i].value }]  });
             } else if (semanticCommand.values[i].annotation === Token.u) {
                 if (semanticCommand.target) {
-                    if (!/\d{18}/.test(semanticCommand.target.value)) throw new DiscordQueryParsingError(semanticCommand.target.index, semanticCommand.target.annotation as Token);
+                    if (!/\d{18}/.test(semanticCommand.values[i].value)) throw new DiscordQueryParsingError(semanticCommand.target.index, semanticCommand.target.annotation as Token);
                     callstack.push({ command: 'fetchMember', args: [semanticCommand.values[i].value] });
                 } else {
                     if (!/\d{18}/.test(semanticCommand.values[i].value)) throw new DiscordQueryParsingError(semanticCommand.values[i].index, semanticCommand.values[i].annotation as Token);

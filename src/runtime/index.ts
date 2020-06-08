@@ -1,4 +1,3 @@
-/** TODO: Document this file */
 import { Lexer } from './lexer';
 import { Token } from '../types/tokens';
 import { SemanticAST } from '../types/ast';
@@ -8,22 +7,20 @@ import { Event } from '../types/listener';
 import { ClientEvents, DiscordAPIError } from 'discord.js';
 import { Engine } from '../engine';
 import { DiscordQueryRuntimeError } from './errors';
-import kUse from './controllers/kUse';
-import kListen from './controllers/kListen';
-import kFetch from './controllers/kFetch';
-import kRead from './controllers/kRead';
-import kDelete from './controllers/kDelete';
-import kSend from './controllers/kSend';
-import kEdit from './controllers/kEdit';
-import kShow from './controllers/kShow';
-import kPresence from './controllers/kPresence';
+import kUse from './controllers/use';
+import kListen from './controllers/listen';
+import kFetch from './controllers/fetch';
+import kRead from './controllers/read';
+import kDelete from './controllers/delete';
+import kSend from './controllers/send';
+import kEdit from './controllers/edit';
+import kShow from './controllers/show';
+import kPresence from './controllers/presence';
 
 /** DiscordQuery class converting .dq source code into engine commands */
 export class DiscordQuery {
     /** Engine instance */
     private engine!: Engine;
-    /** Contexual stack */
-    private _semantic: Array<SemanticAST>;
     /** Engine commands to execute in order */
     private _callstack: Array<EngineCall>;
     /** Listener for discord events */
@@ -35,7 +32,6 @@ export class DiscordQuery {
 
     /** Initilizes values */
     constructor () {
-        this._semantic = [];
         this._callstack = [];
         this.listenHandler = console.log;
         this.callbackHandler = console.log;
@@ -52,11 +48,6 @@ export class DiscordQuery {
         this.callbackHandler = callback;
     }
 
-    /** Expose semanticStack  */
-    get semantic (): Array<SemanticAST> {
-        return this._semantic;
-    }
-
     /** Expose engineCallstack */
     get callstack (): Array<EngineCall> {
         return this._callstack;
@@ -69,8 +60,7 @@ export class DiscordQuery {
     public parse (src: string): void {
         const lexer = new Lexer(src);
         const parser = new Parser(lexer);
-        this._semantic = parser.semantic;
-        this.generate();
+        this.generate(parser.semantic);
     }
 
     /**
@@ -85,7 +75,7 @@ export class DiscordQuery {
             this.engine = new Engine(discordToken);
         }
 
-        if (discordToken !== undefined && /\w{24}\.\w{6}\.\w{27}/.test(discordToken)) {
+        if (discordToken !== undefined && /.{24}\..{6}\..{27}/.test(discordToken)) {
             if (!this.engine.client.token) {
                 await this.engine.login(discordToken);
             }
@@ -99,19 +89,25 @@ export class DiscordQuery {
             }
         }
 
+        const removeAmount = this._callstack.length;
+
         for (let i = 0; i < this._callstack.length; i++) {
             try {
                 const value = await this.engine.execute(this._callstack[i].command, ...this._callstack[i].args);
                 this.callbackHandler(this._callstack[i].command, value);
             } catch (error) {
+                let newError: DiscordQueryRuntimeError;
                 if (error instanceof DiscordAPIError) {
-                    throw new DiscordQueryRuntimeError(this._callstack[i].command, this.engine, error);
+                    newError = new DiscordQueryRuntimeError(this._callstack[i].command, this.engine, error);
+                } else {
+                    newError = new DiscordQueryRuntimeError(this._callstack[i].command, this.engine);
                 }
-                throw new DiscordQueryRuntimeError(this._callstack[i].command, this.engine);
-            } finally {
-                this._callstack = this._callstack.filter((_v, index: number) => i !== index);
+                this._callstack = this._callstack.slice(removeAmount);
+                throw newError;
             }
         }
+
+        this._callstack = this._callstack.slice(removeAmount);
 
         if (killOnEnd) {
             this.engine.client.destroy();
@@ -130,10 +126,10 @@ export class DiscordQuery {
     }
 
     /** Run functions to create engine callstack */
-    private generate (): void {
-        for (let i = 0; i < this._semantic.length; i++) {
-            const semanticCommand = this._semantic[i];
-            switch (semanticCommand.command) {
+    private generate (semantic: Array<SemanticAST>): void {
+        for (let i = 0; i < semantic.length; i++) {
+            const semanticCommand = semantic[i];
+            switch (semanticCommand.command.key) {
                 case Token.USE: this._callstack.push(...kUse(semanticCommand)); break;
                 case Token.LISTEN: this.callstack.push(...kListen(semanticCommand, this.listenHandler)); break;
                 case Token.FETCH: this._callstack.push(...kFetch(semanticCommand)); break;
@@ -145,7 +141,6 @@ export class DiscordQuery {
                 case Token.PRESENCE: this._callstack.push(...kPresence(semanticCommand)); break;
                 case Token.RAW: this.raw = this.raw ? false : true; break;
             }
-            this._semantic = this._semantic.filter((_v, index: number) => i !== index);
         }
     }
 }

@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class formatting serialized data into neat printable output</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -112,19 +119,33 @@
 					<a name="channel" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> channel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:131</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L196">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:196</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized channel into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>channel: <a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized channel object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -141,13 +162,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:96</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L119">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:119</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a array of channels into a single string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>channels: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of serialized channels to contain in one string</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -164,13 +193,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:80</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L95">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:95</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Date parser expressing all dates for the output</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Date object</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -181,24 +218,33 @@
 					<a name="emoji" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> emoji</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">emoji<span class="tsd-signature-symbol">(</span>emoji<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">emoji<span class="tsd-signature-symbol">(</span>emoji<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:140</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L229">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:229</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO: All of these</p>
+									<p>Formats a single serialized emoji into a console ready string</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>emoji: <a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized emoji object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -215,16 +261,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:34</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L44">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:44</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles a discord event and returns a prinatable string containing the output of it</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>eventName: <span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord ClientEvent name</p>
+									</div>
 								</li>
 								<li>
 									<h5>serialArray: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of serialized input</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -241,16 +298,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:8</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L13">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:13</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles an engine command and its serialized input, and returns a formatted string.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>command: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_types_engine_.enginecommands.html" class="tsd-signature-type">EngineCommands</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Engine command</p>
+									</div>
 								</li>
 								<li>
 									<h5>values: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value returned by engine command</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -261,19 +329,33 @@
 					<a name="guild" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> guild</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">(</span>guild<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">(</span>guild<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:135</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L211">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:211</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized guild into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>guild: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>guild: <a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized guild object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -290,13 +372,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:89</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L108">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:108</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a array of guilds into a single string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>guilds: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of serialized guilds to contain in one string</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -307,19 +397,33 @@
 					<a name="member" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> member</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">member<span class="tsd-signature-symbol">(</span>member<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">member<span class="tsd-signature-symbol">(</span>member<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:127</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L183">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:183</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized member into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>member: <a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized member object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -336,13 +440,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:110</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L141">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:141</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a array of members into a single string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>members: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of serialized members to contain in one string</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -353,19 +465,33 @@
 					<a name="message" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> message</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:117</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L153">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:153</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized message into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>message: <a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized message object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -382,13 +508,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:103</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L130">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:130</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a array of messages into a single string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>messages: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of serialized messages to contain in one string</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -399,19 +533,33 @@
 					<a name="presence" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> presence</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">(</span>presence<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">(</span>presence<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:158</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L268">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:268</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized presence into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>presence: <a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized presence object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -422,19 +570,33 @@
 					<a name="reaction" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> reaction</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">reaction<span class="tsd-signature-symbol">(</span>reaction<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">reaction<span class="tsd-signature-symbol">(</span>reaction<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:146</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L242">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:242</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized reaction into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>reaction: <a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized reaction object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -445,19 +607,33 @@
 					<a name="role" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> role</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">role<span class="tsd-signature-symbol">(</span>role<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">role<span class="tsd-signature-symbol">(</span>role<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:152</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L256">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:256</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized role into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>role: <a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized role object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -468,19 +644,33 @@
 					<a name="user" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> user</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a>, partial<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:122</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L169">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:169</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Formats a single serialized user into a console ready string</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Serialized user object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> partial: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to return the formatted data or the whole output</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -497,9 +687,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:76</li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/controllers/formatter.ts#L87">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/controllers/formatter.ts:87</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Polyfill function returning an empty string</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>

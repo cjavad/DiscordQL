@@ -17,14 +17,18 @@ export default function kEdit (semanticCommand: SemanticAST): Array<EngineCall> 
         attachments: []
     };
 
-    if (semanticCommand.target && semanticCommand.target.annotation === Token.m) {
+    if (!semanticCommand.target) throw new DiscordQueryParsingError(semanticCommand.command.index, semanticCommand.command.key);
+    if (semanticCommand.target && semanticCommand.target.annotation === Token.c) {
         if (!/\d{18}/.test(semanticCommand.target.value)) throw new DiscordQueryParsingError(semanticCommand.target.index, semanticCommand.target.annotation);
-        messageID = semanticCommand.target.value;
+        callstack.push({ command: 'selectChannel', args: [semanticCommand.target.value] });
     }
 
     for (let i = 0; i < semanticCommand.values.length; i++) {
         const value = semanticCommand.values[i];
-        if (value.key === Token.STRING && value.annotation === Token.A) {
+        if (value.annotation === Token.m) {
+            if (!/\d{18}/.test(value.value)) throw new DiscordQueryParsingError(value.index, value.annotation);
+            messageID = value.value;
+        } else if (value.key === Token.STRING && value.annotation === Token.A) {
             options.attachments.push(value.value);
         } else if (value.key === Token.OBJECT) {
             try {
@@ -33,11 +37,12 @@ export default function kEdit (semanticCommand: SemanticAST): Array<EngineCall> 
             } catch (error) {
                 throw new DiscordQueryParsingError(value.index, value.key);
             }
-        } else if (value.key === Token.STRING) {
+        } else if (value.key === Token.STRING && value.annotation === undefined) {
             options.content += value.value + '\n';
         }
     }
 
+    if (!messageID) throw new DiscordQueryParsingError(semanticCommand.command.index, semanticCommand.command.key);
     callstack.push({ command: 'editMessage', args: [{ messageID: messageID, editOptions: options }] });
     return callstack;
 }

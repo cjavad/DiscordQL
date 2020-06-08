@@ -1,6 +1,6 @@
 {
   "name": "discordquery",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "You ever wanted to browse your discord server from a terminal? Look no further discordquery aims to be a CLI interface with your discord bot.",
   "main": "build/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/cjavad/discordquery.git"
   },
   "author": "Javad Asgari Shafique",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cjavad/discordquery/issues"
   },
@@ -32,7 +32,6 @@
     "chai": "^4.2.0",
     "eslint": "^7.1.0",
     "mocha": "^7.2.0",
-    "nodemon": "^2.0.3",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
   },

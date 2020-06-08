@@ -106,6 +106,8 @@ export class Parser {
                     }
                 }
                 this._ast.push(node);
+            } else if (statement.length && !this.isSeperate(statement[0].token)) {
+                throw new DiscordQueryParsingError(statement[0].index, Token.ERROR);
             }
         });
     }
@@ -114,9 +116,13 @@ export class Parser {
     private context (): void {
         for (let i = 0; i < this._ast.length; i++) {
             this._semantic.push({
-                command: this._ast[i].token,
-                target: statementTarget(this._ast[i], this.keywordOptionals(this._ast[i].token)),
-                values: statementValues(this._ast[i], this.keywordOptionals(this._ast[i].token))
+                command: {
+                    key: this._ast[i].token,
+                    index: this._ast[i].index,
+                    value: this._ast[i].value || Token[this._ast[i].token]
+                },
+                target: statementTarget(this._ast[i], this.keywordTargetOptionals(this._ast[i].token)),
+                values: statementValues(this._ast[i], this.keywordValuesOptionals(this._ast[i].token))
             });
         }
     }
@@ -153,18 +159,26 @@ export class Parser {
     * Return linked keywords
     * @param token - token enum
     */
-    private keywordOptionals (token: Token): Array<Token> {
+    private keywordValuesOptionals (token: Token): Array<Token> {
         switch (token) {
-            case Token.USE: return [];
             case Token.LISTEN: return [Token.INCLUDE, Token.EXCLUDE];
-            case Token.FETCH: return [Token.FROM, Token.IN];
             case Token.READ: return [Token.LIMIT, Token.BEFORE, Token.AFTER, Token.AROUND];
-            case Token.DELETE: return [Token.LIMIT, Token.BEFORE, Token.AFTER, Token.AROUND, Token.IN];
-            case Token.SEND: return [Token.IN];
+            case Token.DELETE: return [Token.LIMIT, Token.BEFORE, Token.AFTER, Token.AROUND];
             case Token.EDIT: return [Token.WITH];
-            case Token.SHOW: return [];
-            case Token.PRESENCE: return [];
-            case Token.RAW: return [];
+            default: return [];
+        }
+    }
+
+    /**
+    * Return linked keywords
+    * @param token - token enum
+    */
+    private keywordTargetOptionals (token: Token): Array<Token> {
+        switch (token) {
+            case Token.FETCH: return [Token.FROM];
+            case Token.DELETE: return [Token.IN];
+            case Token.SEND: return [Token.IN];
+            case Token.EDIT: return [Token.IN];
             default: return [];
         }
     }

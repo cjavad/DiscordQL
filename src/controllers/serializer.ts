@@ -208,7 +208,7 @@ export default class Serializer {
             guild: channel.guild ? this.guild(channel.guild) : undefined,
             manageable: channel.manageable,
             viewable: channel.viewable,
-            position: channel.position,
+            position: channel.rawPosition,
         };
     }
 
@@ -272,7 +272,7 @@ export default class Serializer {
             name: role.name,
             color: role.color,
             hexColor: role.hexColor,
-            position: role.position,
+            position: role.rawPosition,
             createdAt: role.createdAt,
             createdTimestamp: role.createdTimestamp,
             deleted: role.deleted,

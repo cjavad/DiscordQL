@@ -1,4 +1,3 @@
-/** TODO: Document this file */
 import { EngineError } from '../engine/errors';
 import { EngineCommands } from '../types/engine';
 import { Engine } from '../engine';

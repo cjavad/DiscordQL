@@ -15,10 +15,12 @@ export default function kSend (semanticCommand: SemanticAST): Array<EngineCall> 
         attachments: []
     };
 
+    if (!semanticCommand.target) throw new DiscordQueryParsingError(semanticCommand.command.index, semanticCommand.command.key);
     if (semanticCommand.target && semanticCommand.target.annotation === Token.c) {
         callstack.push({ command: 'selectChannel', args: [semanticCommand.target.value] });
     }
 
+    if (!semanticCommand.values.length) throw new DiscordQueryParsingError(semanticCommand.target.index, semanticCommand.command.key);
     for (let i = 0; i < semanticCommand.values.length; i++) {
         const value = semanticCommand.values[i];
         if (value.key === Token.STRING && value.annotation === Token.A) {

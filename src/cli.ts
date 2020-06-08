@@ -1,4 +1,3 @@
-/** TODO: Document this file */
 import * as fs from 'fs';
 import chalk from 'chalk';
 import yargs from 'yargs';
@@ -71,7 +70,9 @@ discordQuery.listener = (event: Event<keyof ClientEvents>) => {
     formatted += ' ' + chalk.black.bgWhite(event.name) + ':';
 
     const values = Serializer.normalizeListener(event);
+    console.log();
     Formatter.formatEvent(event.name, values).forEach(output => console.log(formatted, output));
+    console.log();
 };
 
 export function cli (args: Array<string>): void {
@@ -122,30 +123,32 @@ export function cli (args: Array<string>): void {
             try {
                 discordQuery.parse(cmd);
                 discordQuery.execute(false, argv.token ? argv.token as string : undefined)
+                .then(() => {
+                    callback();
+                })
                 .catch(error => {
                     if (error instanceof DiscordQueryRuntimeError) {
                         showEngineError(error);
+                        callback();
                     } else {
                         throw error;
                     }
-                })
-                .finally(() => {
-                    return callback();
                 });
             } catch (error) {
                 if (error instanceof DiscordQueryParsingError) {
                     showParserError(cmd, error);
+                    callback();
                 } else {
                     throw error;
                 }
-            } finally {
-                return callback();
             }
         }
 
         const replServer = repl.start({ prompt:'> ', eval: discordQueryEval as any });
 
-        replServer.on('SIGINT', () => {
+        // Reload bot on .clear
+        replServer.on('reset', () => {
+            console.clear();
             discordQuery.reload()
                 .then((success: boolean) => {
                     // Reload was succesful

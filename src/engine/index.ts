@@ -55,6 +55,7 @@ export class Engine {
     /** Initializes discord instance */
     async login (discordToken?: string): Promise<void> {
         try {
+            this.client = new Client();
             await this.client.login(discordToken || this.discordToken);
         } catch (error) {
             throw new EngineError('login', this, 'Invalid Discord Token');

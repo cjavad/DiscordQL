@@ -20,7 +20,7 @@ export interface AnnotatedValue {
 
 /** Contextual AST Entry */
 export interface SemanticAST {
-    command: Token,
+    command: AnnotatedValue,
     target?: AnnotatedValue,
     values: Array<AnnotatedValue>
 }

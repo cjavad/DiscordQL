@@ -9,6 +9,8 @@ import { DiscordQueryParsingError } from '../errors';
 */
 export default function kPresence (semanticCommand: SemanticAST): Array<EngineCall> {
     const callstack: Array<EngineCall> = [];
+
+    if (semanticCommand.values.length !== 1) throw new DiscordQueryParsingError(semanticCommand.command.index, semanticCommand.command.key);
     if (semanticCommand.values.length === 1 && semanticCommand.values[0].key === Token.OBJECT) {
         let newPresence: Record<string, unknown> = {};
         try {

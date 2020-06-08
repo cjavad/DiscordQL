@@ -6,5 +6,6 @@ import { Client, User } from 'discord.js';
  * @param userID - Discord user id of a global discord user
  */
 export default async function fetchUser (client: Client, userID: string): Promise<User | undefined> {
-    return (await client.users.fetch(userID)) as User | undefined;
+    const user = client.users.fetch(userID);
+    return user ? user : undefined;
 }

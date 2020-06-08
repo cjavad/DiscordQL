@@ -4,15 +4,16 @@ import { DiscordQueryParsingError } from '../errors';
 import { EngineCall } from '../../types/engine';
 
 /**
-     * Create callstack for use keyword
-     * @param semanticCommand - Parsed AST Entry
-     */
+* Create callstack for use keyword
+* @param semanticCommand - Parsed AST Entry
+*/
 export default function kUse (semanticCommand: SemanticAST): Array<EngineCall> {
     const callstack: Array<EngineCall> = [];
+    if (!semanticCommand.values.length) throw new DiscordQueryParsingError(semanticCommand.command.index, semanticCommand.command.key);
     for (let i = 0; i < semanticCommand.values.length; i++) {
         const value = semanticCommand.values[i];
         if (value.annotation === Token.t) {
-            if (!/\w{24}\.\w{6}\.\w{27}/.test(value.value)) throw new DiscordQueryParsingError(value.index, value.annotation);
+            if (!/.{24}\..{6}\..{27}/.test(value.value)) throw new DiscordQueryParsingError(value.index, value.annotation);
             callstack.push({ command: 'login', args: [value.value] });
         } else if (value.annotation === Token.g) {
             if (!/\d{18}/.test(value.value)) throw new DiscordQueryParsingError(value.index, value.annotation);
