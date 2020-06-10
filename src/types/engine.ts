@@ -2,7 +2,7 @@ import { Guild, TextChannel, DMChannel, ClientEvents, MessageOptions, ChannelLog
 import { Event } from './listener';
 
 /** interface with expected input values for each EngineCommand command */
-export interface EngineCommands {
+export interface EngineCommand {
     login: [string],
     selectGuild: [string],
     selectChannel: [string],
@@ -33,13 +33,13 @@ export interface EngineInstance {
 
 /** Object containing both a EngineCommands command and the required argument */
 export interface EngineCall {
-    command: keyof EngineCommands,
+    command: keyof EngineCommand,
     args: any
 }
 
 /** Object containing a event handler and a array of ClientEvents to use the handler with */
 export interface EngineListenOptions {
-    handler(event: Event<keyof ClientEvents>): void,
+    handler(event: Event): void,
     includeEvents?: Array<keyof ClientEvents>
 }
 

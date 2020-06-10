@@ -1,3 +1,5 @@
+import { Speaking } from 'discord.js';
+
 export interface SerialVoid {
     type: 'void'
 }
@@ -110,7 +112,7 @@ export interface SerialRole {
 
 export interface SerialPresence {
     type: 'presence',
-    status: 'online' | 'idle' | 'dnd' | 'offline',
+    status?: 'online' | 'idle' | 'dnd' | 'offline',
     clientStatus?: {
         web?: 'online' | 'idle' | 'dnd';
         mobile?: 'online' | 'idle' | 'dnd';
@@ -135,6 +137,46 @@ export interface SerialActivity {
     name: string,
     url?: string
 }
+
+export interface SerialClientEvents {
+    channelCreate: [SerialChannel];
+    channelDelete: [SerialChannel];
+    channelPinsUpdate: [SerialChannel, Date];
+    channelUpdate: [SerialChannel, SerialChannel];
+    emojiCreate: [SerialEmoji];
+    emojiDelete: [SerialEmoji];
+    emojiUpdate: [SerialEmoji, SerialEmoji];
+    guildBanAdd: [SerialGuild, SerialUser];
+    guildBanRemove: [SerialGuild, SerialUser];
+    guildCreate: [SerialGuild];
+    guildDelete: [SerialGuild];
+    guildUnavailable: [SerialGuild];
+    guildIntegrationsUpdate: [SerialGuild];
+    guildMemberAdd: [SerialMember];
+    guildMemberAvailable: [SerialMember];
+    guildMemberRemove: [SerialMember];
+    guildMembersChunk: [Array<SerialMember>, SerialGuild];
+    guildMemberSpeaking: [SerialMember, Readonly<Speaking>];
+    guildMemberUpdate: [SerialMember, SerialMember];
+    guildUpdate: [SerialGuild, SerialGuild];
+    message: [SerialMessage];
+    messageDelete: [SerialMessage];
+    messageReactionRemoveAll: [SerialMessage];
+    messageReactionRemoveEmoji: [SerialReaction];
+    messageDeleteBulk: [Array<SerialMessage>];
+    messageReactionAdd: [SerialReaction, SerialUser];
+    messageReactionRemove: [SerialReaction, SerialUser];
+    messageUpdate: [SerialMessage, SerialMessage];
+    presenceUpdate: [SerialPresence | undefined, SerialPresence];
+    roleCreate: [SerialRole];
+    roleDelete: [SerialRole];
+    roleUpdate: [SerialRole, SerialRole];
+    typingStart: [SerialChannel, SerialUser];
+    userUpdate: [SerialUser, SerialUser];
+    voiceStateUpdate: [SerialMember, SerialMember];
+    webhookUpdate: [SerialChannel];
+  }
+
 
 export type SerialPermissions =
 | 'CREATE_INSTANT_INVITE'

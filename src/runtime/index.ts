@@ -1,10 +1,10 @@
 import { Lexer } from './lexer';
 import { Token } from '../types/tokens';
-import { SemanticAST } from '../types/ast';
+import { SemanticAST } from '../types/parser';
 import { Parser } from './parser';
-import { EngineCall, EngineCommands } from '../types/engine';
+import { EngineCall, EngineCommand } from '../types/engine';
 import { Event } from '../types/listener';
-import { ClientEvents, DiscordAPIError } from 'discord.js';
+import { DiscordAPIError } from 'discord.js';
 import { Engine } from '../engine';
 import { DiscordQueryRuntimeError } from './errors';
 import kUse from './controllers/use';
@@ -24,9 +24,9 @@ export class DiscordQuery {
     /** Engine commands to execute in order */
     private _callstack: Array<EngineCall>;
     /** Listener for discord events */
-    private listenHandler: ((event: Event<keyof ClientEvents>) => void);
+    private listenHandler: ((event: Event) => void);
     /** Callback handler for all commands */
-    private callbackHandler: (command: keyof EngineCommands, value: any) => void;
+    private callbackHandler: (command: keyof EngineCommand, value: any) => void;
     /** Variable that decided if outputted is passed to a handler or console */
     public raw: boolean;
 
@@ -39,12 +39,12 @@ export class DiscordQuery {
     }
 
     /** Used to set a custom event listernes */
-    set listener (handler: (event: Event<keyof ClientEvents>) => void) {
+    set listener (handler: (event: Event) => void) {
         this.listenHandler = handler;
     }
 
     /** Used to set custom a handler for command return values */
-    set callback (callback: (command: keyof EngineCommands, values: any) => void) {
+    set callback (callback: (command: keyof EngineCommand, values: any) => void) {
         this.callbackHandler = callback;
     }
 
@@ -96,6 +96,7 @@ export class DiscordQuery {
                 const value = await this.engine.execute(this._callstack[i].command, ...this._callstack[i].args);
                 this.callbackHandler(this._callstack[i].command, value);
             } catch (error) {
+                console.log(error);
                 let newError: DiscordQueryRuntimeError;
                 if (error instanceof DiscordAPIError) {
                     newError = new DiscordQueryRuntimeError(this._callstack[i].command, this.engine, error);

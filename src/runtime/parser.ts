@@ -1,6 +1,6 @@
 import { Lexer, keywords } from './lexer';
 import { Token, TokenContext, Keywords } from '../types/tokens';
-import { ASTNode, SemanticAST } from '../types/ast';
+import { ASTNode, SemanticAST } from '../types/parser';
 import { DiscordQueryParsingError } from './errors';
 import statementValues from './controllers/values';
 import statementTarget from './controllers/target';

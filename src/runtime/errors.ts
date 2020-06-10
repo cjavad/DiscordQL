@@ -1,5 +1,5 @@
 import { EngineError } from '../engine/errors';
-import { EngineCommands } from '../types/engine';
+import { EngineCommand } from '../types/engine';
 import { Engine } from '../engine';
 import { DiscordAPIError } from 'discord.js';
 import { Token, Keywords } from '../types/tokens';
@@ -22,7 +22,7 @@ export class ParserError extends SyntaxError {
 }
 
 export class DiscordQueryRuntimeError extends EngineError {
-    constructor (public command: keyof EngineCommands, public engine: Engine, discordError?: DiscordAPIError, ...args: Array<any>) {
+    constructor (public command: keyof EngineCommand, public engine: Engine, discordError?: DiscordAPIError, ...args: Array<any>) {
         super(command, engine, ...args);
         if (discordError) {
             this.message = discordError.message;

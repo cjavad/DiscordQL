@@ -86,13 +86,13 @@
 					<a name="eventcallback" class="tsd-anchor"></a>
 					<h3>event<wbr>Callback</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">event<wbr>Callback&lt;K&gt;<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, ids<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.ids.html" class="tsd-signature-type">Ids</a>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClientEvents</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">event<wbr>Callback&lt;K&gt;<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, ids<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.ids.html" class="tsd-signature-type">Ids</a>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClientEvents</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/engine/controllers/listenBase.ts#L10">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/listenBase.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/c41ebf8/src/engine/controllers/listenBase.ts#L12">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/listenBase.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -103,7 +103,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_types_serial_.serialclientevents.html" class="tsd-signature-type">SerialClientEvents</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -127,7 +127,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -135,13 +135,13 @@
 					<a name="eventlistener" class="tsd-anchor"></a>
 					<h3>event<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">event<wbr>Listener<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Client</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">event<wbr>Listener<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Client</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/1543b74/src/engine/controllers/listenBase.ts#L23">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/listenBase.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/cjavad/discord-cli/blob/c41ebf8/src/engine/controllers/listenBase.ts#L25">Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/listenBase.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -158,21 +158,21 @@
 									</div>
 								</li>
 								<li>
-									<h5>callback: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Callback function that takes an Event object that is called on every event</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span><span class="tsd-signature-symbol">&gt;</span></h5>
+															<h5>event: <a href="../interfaces/_types_listener_.event.html" class="tsd-signature-type">Event</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -224,11 +224,10 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

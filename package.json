@@ -1,10 +1,11 @@
 {
   "name": "discordquery",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "You ever wanted to browse your discord server from a terminal? Look no further discordquery aims to be a CLI interface with your discord bot.",
   "main": "build/index.js",
   "scripts": {
     "docs": "typedoc --options ./typedoc.json",
+    "start": "tsc --watch",
     "build": "tsc",
     "test": "mocha -r ts-node/register tests/*.test.ts"
   },
@@ -22,6 +23,10 @@
     "url": "https://github.com/cjavad/discordquery/issues"
   },
   "homepage": "https://github.com/cjavad/discordquery#readme",
+  "keywords": [
+    "discord",
+    "programming language"
+  ],
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",

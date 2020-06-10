@@ -1,15 +1,14 @@
-import { SemanticAST } from '../../types/ast';
+import { SemanticAST } from '../../types/parser';
 import { Token } from '../../types/tokens';
 import { DiscordQueryParsingError } from '../errors';
 import { EngineCall } from '../../types/engine';
 import { Event } from '../../types/listener';
-import { ClientEvents } from 'discord.js';
 
 /**
      * Create callstack for listen keyword
      * @param semanticCommand - Parsed AST Entry
      */
-export default function kListen (semanticCommand: SemanticAST, listenHandler: (event: Event<keyof ClientEvents>) => void): Array<EngineCall> {
+export default function kListen (semanticCommand: SemanticAST, listenHandler: (event: Event) => void): Array<EngineCall> {
     const callstack: Array<EngineCall> = [];
 
     let listenCommand: 'listenClient' | 'listenGuild' | 'listenChannel' = 'listenChannel';

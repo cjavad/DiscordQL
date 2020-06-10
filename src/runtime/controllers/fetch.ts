@@ -1,4 +1,4 @@
-import { SemanticAST } from '../../types/ast';
+import { SemanticAST } from '../../types/parser';
 import { Token } from '../../types/tokens';
 import { DiscordQueryParsingError } from '../errors';
 import { EngineCall } from '../../types/engine';

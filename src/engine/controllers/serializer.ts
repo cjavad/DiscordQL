@@ -1,6 +1,5 @@
-import { EngineCommands } from '../types/engine';
-import { SerialVoid, SerialMessage, SerialUser, SerialMember, SerialChannel, SerialGuild, SerialEmoji, SerialReaction, SerialRole, SerialPresence, SerialActivity, SerialPermissions } from '../types/serial';
-import { Event } from '../types/listener';
+import { EngineCommand } from '../../types/engine';
+import { SerialVoid, SerialMessage, SerialUser, SerialMember, SerialChannel, SerialGuild, SerialEmoji, SerialReaction, SerialRole, SerialPresence, SerialActivity, SerialPermissions } from '../../types/serial';
 import { ClientEvents, Emoji, User, Guild, GuildMember, Message, Role, Presence, TextChannel, GuildChannel, MessageReaction, Permissions, Activity, PermissionString } from 'discord.js';
 
 /** Huge class contaning functions to serialize discord.js classes into simple objects */
@@ -10,7 +9,7 @@ export default class Serializer {
      * @param command - Engine command
      * @param value - The value returned by the engine command
      */
-    static normalizeQuery (command: keyof EngineCommands, value: any): Array<SerialVoid | SerialMessage | SerialUser | SerialMember | SerialChannel | SerialGuild | SerialEmoji | SerialReaction | SerialRole | SerialPresence | SerialActivity | SerialPermissions> {
+    static normalizeQuery (command: keyof EngineCommand, value: any): Array<SerialVoid | SerialMessage | SerialUser | SerialMember | SerialChannel | SerialGuild | SerialEmoji | SerialReaction | SerialRole | SerialPresence | SerialActivity | SerialPermissions> {
         if (!value) return [this.void()];
         switch (command) {
             case 'selectGuild': return [this.guild(value)];
@@ -39,45 +38,50 @@ export default class Serializer {
      * Serialize a discord event into a list of objects
      * @param event - Discord event containing the event name and the event params
      */
-    static normalizeListener (event: Event<keyof ClientEvents>): Array<SerialVoid | SerialMessage | SerialUser | SerialMember | SerialChannel | SerialGuild | SerialEmoji | SerialReaction | SerialRole | SerialPresence | SerialActivity | SerialPermissions | any> {
-        if (!event.params.length) return [this.void()];
-        if (!event.params[0]) return [this.void()];
-        if (event.params.length === 2 && !event.params[1]) return [this.void()];
-        switch (event.name) {
-            case 'channelCreate': return [this.channel(event.params[0])];
-            case 'channelDelete': return [this.channel(event.params[0])];
-            case 'channelPinsUpdate': return [this.channel(event.params[0]), event.params[1]];
-            case 'channelUpdate': return [this.channel(event.params[0]), this.channel(event.params[1] as any)];
-            case 'emojiCreate': return [this.emoji(event.params[0])];
-            case 'emojiDelete': return [this.emoji(event.params[0])];
-            case 'emojiUpdate': return [this.emoji(event.params[0]), this.emoji(event.params[1] as Emoji)];
-            case 'guildBanAdd': return [this.guild(event.params[0]), this.user(event.params[1] as User)];
-            case 'guildBanRemove': return [this.guild(event.params[0]), this.user(event.params[1] as User)];
-            case 'guildCreate':  return [this.guild(event.params[0])];
-            case 'guildDelete':  return [this.guild(event.params[0])];
-            case 'guildMemberAdd': return [this.member(event.params[0])];
-            case 'guildMemberAvailable': return [this.member(event.params[0])];
-            case 'guildMemberRemove': return [this.member(event.params[0])];
-            case 'guildMembersChunk':  return [this.members(event.params[0]), this.guild(event.params[1] as Guild)];
-            case 'guildMemberSpeaking': return [this.member(event.params[0]), event.params[1]];
-            case 'guildMemberUpdate': return [this.member(event.params[0]), this.member(event.params[1] as GuildMember)];
-            case 'guildUnavailable': return [this.guild(event.params[0])];
-            case 'guildUpdate': return [this.guild(event.params[0]), this.guild(event.params[1] as Guild)];
-            case 'message': return [this.message(event.params[0])];
-            case 'messageDelete': return [this.message(event.params[0])];
-            case 'messageDeleteBulk': return [this.messages(event.params[0])];
-            case 'messageUpdate': return [this.message(event.params[0]), this.message(event.params[1] as Message)];
-            case 'messageReactionAdd': return [this.reaction(event.params[0]), this.user(event.params[1] as User)];
-            case 'messageReactionRemove': return [this.reaction(event.params[0]), this.user(event.params[1] as User)];
-            case 'messageReactionRemoveAll': return [this.message(event.params[0])];
-            case 'roleCreate': return [this.role(event.params[0])];
-            case 'roleDelete': return [this.role(event.params[0])];
-            case 'roleUpdate': return [this.role(event.params[0]), this.role(event.params[1] as Role)];
-            case 'presenceUpdate': return [this.presence(event.params[0]), this.presence(event.params[1] as Presence)];
-            case 'typingStart': return [this.channel(event.params[0]), this.user(event.params[1] as User)];
-            case 'userUpdate': return [this.user(event.params[0]), this.user(event.params[1] as User)];
-            case 'voiceStateUpdate':  return [this.member(event.params[0]), this.member(event.params[1] as GuildMember)];
-            default: return [this.void()];
+    static normalizeListener (name: keyof ClientEvents, ...params: any): Array<SerialVoid | SerialMessage | SerialUser | SerialMember | SerialChannel | SerialGuild | SerialEmoji | SerialReaction | SerialRole | SerialPresence | SerialActivity | SerialPermissions | any> {
+        try {
+            switch (name) {
+                case 'channelCreate': return [this.channel(params[0])];
+                case 'channelDelete': return [this.channel(params[0])];
+                case 'channelPinsUpdate': return [this.channel(params[0]), params[1]];
+                case 'channelUpdate': return [this.channel(params[0]), this.channel(params[1] as any)];
+                case 'emojiCreate': return [this.emoji(params[0])];
+                case 'emojiDelete': return [this.emoji(params[0])];
+                case 'emojiUpdate': return [this.emoji(params[0]), this.emoji(params[1] as Emoji)];
+                case 'guildBanAdd': return [this.guild(params[0]), this.user(params[1] as User)];
+                case 'guildBanRemove': return [this.guild(params[0]), this.user(params[1] as User)];
+                case 'guildCreate':  return [this.guild(params[0])];
+                case 'guildDelete':  return [this.guild(params[0])];
+                case 'guildMemberAdd': return [this.member(params[0])];
+                case 'guildMemberAvailable': return [this.member(params[0])];
+                case 'guildMemberRemove': return [this.member(params[0])];
+                case 'guildMembersChunk':  return [this.members(params[0]), this.guild(params[1] as Guild)];
+                case 'guildMemberSpeaking': return [this.member(params[0]), params[1]];
+                case 'guildMemberUpdate': return [this.member(params[0]), this.member(params[1] as GuildMember)];
+                case 'guildUnavailable': return [this.guild(params[0])];
+                case 'guildUpdate': return [this.guild(params[0]), this.guild(params[1] as Guild)];
+                case 'message': return [this.message(params[0])];
+                case 'messageDelete': return [this.message(params[0])];
+                case 'messageDeleteBulk': return [this.messages(params[0])];
+                case 'messageUpdate': return [this.message(params[0]), this.message(params[1] as Message)];
+                case 'messageReactionAdd': return [this.reaction(params[0]), this.user(params[1] as User)];
+                case 'messageReactionRemove': return [this.reaction(params[0]), this.user(params[1] as User)];
+                case 'messageReactionRemoveAll': return [this.message(params[0])];
+                case 'roleCreate': return [this.role(params[0])];
+                case 'roleDelete': return [this.role(params[0])];
+                case 'roleUpdate': return [this.role(params[0]), this.role(params[1] as Role)];
+                case 'presenceUpdate': return [this.presence(params[0]), this.presence(params[1] as Presence)];
+                case 'typingStart': return [this.channel(params[0]), this.user(params[1] as User)];
+                case 'userUpdate': return [this.user(params[0]), this.user(params[1] as User)];
+                case 'voiceStateUpdate':  return [this.member(params[0]), this.member(params[1] as GuildMember)];
+                default: return [this.void()];
+            }
+        } catch (error) {
+            if (error instanceof TypeError) {
+                return [this.void()];
+            } else {
+                throw error;
+            }
         }
     }
 

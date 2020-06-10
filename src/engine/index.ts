@@ -1,5 +1,7 @@
-import { Client,  TextChannel, DMChannel, MessageOptions, ChannelLogsQueryOptions,  Guild, Message, PresenceData, User, GuildMember, Presence, GuildChannel } from 'discord.js';
-import { EngineInstance, EngineCommands, EngineCall, EngineListenOptions, EngineEditOptions } from '../types/engine';
+import { Client,  TextChannel, DMChannel, MessageOptions, ChannelLogsQueryOptions,  Guild, PresenceData } from 'discord.js';
+import { EngineInstance, EngineCommand, EngineCall, EngineListenOptions, EngineEditOptions } from '../types/engine';
+import selectGuild from './controllers/selectGuild';
+import selectChannel from './controllers/selectChannel';
 import fetchGuild from './controllers/fetchGuild';
 import fetchChannel from './controllers/fetchChannel';
 import fetchUser from './controllers/fetchUser';
@@ -17,6 +19,7 @@ import listenClient from './controllers/listenClient';
 import listenGuild from './controllers/listenGuild';
 import listenChannel from './controllers/listenChannel';
 import { EngineError } from './errors';
+import { SerialGuild, SerialChannel, SerialUser, SerialMember, SerialPresence, SerialMessage } from '../types/serial';
 
 /** Engine#instance EngineInstance containing context variables */
 class Instance implements EngineInstance {
@@ -64,10 +67,10 @@ export class Engine {
 
     /**
      * Add a call to Engine#stack
-     * @param command - EngineCommands command
+     * @param command - EngineCommand command
      * @param args - Arguments needed by the command
      */
-    pushStack<K extends keyof EngineCommands> (command: K, args: EngineCommands[K]): void {
+    pushStack<K extends keyof EngineCommand> (command: K, args: EngineCommand[K]): void {
         this.stack.push({
             command: command,
             args: args
@@ -78,7 +81,7 @@ export class Engine {
      * Run over Engine#stack and execute each command
      * @param callback - handle all command returns (values)
      */
-    async executeStack (callback: (command: keyof EngineCommands, value: any) => void): Promise<void> {
+    async executeStack (callback: (command: keyof EngineCommand, value: any) => void): Promise<void> {
         for (let i = 0; i < this.stack.length; i++) {
             const value = await this.execute(this.stack[i].command, ...this.stack[i].args);
             callback(this.stack[i].command, value);
@@ -87,11 +90,11 @@ export class Engine {
     }
 
     /**
-     * Execute any command from EngineCommands and ensure Engine#Client is connected beforehand
-     * @param command - EngineCommands command
+     * Execute any command from EngineCommand and ensure Engine#Client is connected beforehand
+     * @param command - EngineCommand command
      * @param args - Arguments needed by the command
      */
-    async execute<K extends keyof EngineCommands> (command: K, ...args: EngineCommands[K] ): Promise<any> {
+    async execute<K extends keyof EngineCommand> (command: K, ...args: EngineCommand[K] ): Promise<any> {
         return new Promise(async (resolve, reject) => {
             if (command === 'login') {
                 await this.login(args[0] as string).then(resolve).catch(reject);
@@ -126,27 +129,25 @@ export class Engine {
      * Set guild in Engine#instance
      * @param guildID - discord guild id to select
      */
-    async selectGuild (guildID: string): Promise<Guild | undefined> {
+    async selectGuild (guildID: string): Promise<void> {
         if (!this.client || !/\d{18}/.test(guildID)) throw new EngineError('selectGuild', this);
-        this.instance.currentGuild = await fetchGuild(this.client, guildID);
-        return this.instance.currentGuild;
+        this.instance.currentGuild = await selectGuild(this.client, guildID);
     }
 
     /**
      * Set channel in Engine#instance
      * @param channelID - discord channel id to select
      */
-    async selectChannel (channelID: string): Promise<TextChannel | DMChannel | undefined> {
+    async selectChannel (channelID: string): Promise<void> {
         if (!this.client || !/\d{18}/.test(channelID)) throw new EngineError('selectChannel', this);
-        this.instance.currentChannel = await fetchChannel(this.client, channelID);
-        return this.instance.currentChannel;
+        this.instance.currentChannel = await selectChannel(this.client, channelID);
     }
 
     /**
      * Get Discord.Guild by id
      * @param guildID - discord guild id to fetch
      */
-    async fetchGuild (guildID: string): Promise<Guild | undefined> {
+    async fetchGuild (guildID: string): Promise<SerialGuild | undefined> {
         if (!this.client || !/\d{18}/.test(guildID)) throw new EngineError('fetchGuild', this);
         const guild = await fetchGuild(this.client, guildID);
         return guild;
@@ -156,7 +157,7 @@ export class Engine {
      * Get Discord.Channel by id
      * @param channelID - discord channel id to fetch
      */
-    async fetchChannel (channelID: string): Promise<TextChannel | DMChannel | undefined> {
+    async fetchChannel (channelID: string): Promise<SerialChannel | undefined> {
         if (!this.client || !/\d{18}/.test(channelID)) throw new EngineError('fetchChannel', this);
         const channel = await fetchChannel(this.client, channelID);
         return channel;
@@ -166,7 +167,7 @@ export class Engine {
      * Get Discord.User by id
      * @param userID - discord user id to fetch
      */
-    async fetchUser (userID: string): Promise<User | undefined> {
+    async fetchUser (userID: string): Promise<SerialUser | undefined> {
         if (!this.client || !/\d{18}/.test(userID)) throw new EngineError('fetchUser', this);
         const user = await fetchUser(this.client, userID);
         return user;
@@ -176,7 +177,7 @@ export class Engine {
      * Get Discord.GuildMember by id
      * @param userID - discord user id to fetch
      */
-    async fetchMember (userID: string): Promise<GuildMember | undefined> {
+    async fetchMember (userID: string): Promise<SerialMember | undefined> {
         if (!this.client || !this.instance.currentGuild || !/\d{18}/.test(userID)) throw new EngineError('fetchMember', this);
         const member = await fetchMember(this.instance.currentGuild, userID);
         return member;
@@ -186,7 +187,7 @@ export class Engine {
      * Get a list of guilds Engine#client exists in
      * @param search - string to match name of the guilds
      */
-    async showGuilds (search?: string): Promise<Array<Guild>> {
+    async showGuilds (search?: string): Promise<Array<SerialGuild>> {
         if (!this.client) throw new EngineError('showGuilds', this);
         const guilds = await showGuilds(this.client, search);
         return guilds;
@@ -196,7 +197,7 @@ export class Engine {
      * Get a list of channels Engine#instance.currentGuild has
      * @param search - string to match name of the channels
      */
-    async showChannels (search?: string): Promise<Array<GuildChannel>> {
+    async showChannels (search?: string): Promise<Array<SerialChannel>> {
         if (!this.client || !this.instance.currentGuild) throw new EngineError('showChannels', this);
         const channels = showChannels(this.instance.currentGuild, search);
         return channels;
@@ -206,7 +207,7 @@ export class Engine {
      * Get a list of members Engine#instance.currentGuild has
      * @param search - string to match name of the username#0000
      */
-    async showMembers (search?: string): Promise<Array<GuildMember>> {
+    async showMembers (search?: string): Promise<Array<SerialMember>> {
         if (!this.client || !this.instance.currentGuild) throw new EngineError('showChannels', this);
         const channels = showMembers(this.instance.currentGuild, search);
         return channels;
@@ -217,7 +218,7 @@ export class Engine {
      * Update Engine#client (bot instance) discord presence
      * @param newPresence - new overwriting precense
      */
-    async updatePrecense (newPresence: PresenceData): Promise<Presence | undefined> {
+    async updatePrecense (newPresence: PresenceData): Promise<SerialPresence | undefined> {
         if (!this.client) throw new EngineError('updatePrecense', this);
         return await updatePrecense(this.client, newPresence);
     }
@@ -226,7 +227,7 @@ export class Engine {
      * Send a message in Engine#instance.currentChannel
      * @param options - MessageOptions object that defines the discord message
      */
-    async sendMessage (options: MessageOptions): Promise<Message> {
+    async sendMessage (options: MessageOptions): Promise<SerialMessage> {
         if (!this.client || !this.instance.currentChannel) throw new EngineError('sendMessage', this);
         const message = await sendMessage(this.instance.currentChannel, options);
         return message;
@@ -236,7 +237,7 @@ export class Engine {
      * Edit an existing message in Engine#instance.currentChannel
      * @param options - EngineEditOptions which specifices the message to edit and the new message
      */
-    async editMessage (options: EngineEditOptions): Promise<Message> {
+    async editMessage (options: EngineEditOptions): Promise<SerialMessage> {
         if (!this.client || !this.instance.currentChannel) throw new EngineError('editMessage', this);
         const message = await editMessage(this.instance.currentChannel, options.messageID, options.editOptions);
         return message;
@@ -246,7 +247,7 @@ export class Engine {
      * Delete a message in Engine#instance.currentChannel
      * @param messageID - discord message id of the existing message to delete
      */
-    async deleteMessage (messageID: string): Promise<Message> {
+    async deleteMessage (messageID: string): Promise<SerialMessage> {
         if (!this.client || !this.instance.currentChannel || !/\d{18}/.test(messageID)) throw new EngineError('deleteMessage', this);
         const message = await deleteMessage(this.instance.currentChannel as TextChannel, messageID);
         return message;
@@ -256,20 +257,20 @@ export class Engine {
      * Delete multiple messages at once in Engine#instance.currentChannel
      * @param options - ChannelLogsQueryOptions that determines what messages to delete
      */
-    async deleteMessages (options: ChannelLogsQueryOptions): Promise<Array<Message>> {
+    async deleteMessages (options: ChannelLogsQueryOptions): Promise<Array<SerialMessage>> {
         if (!this.client || !this.instance.currentChannel) throw new EngineError('deleteMessages', this);
         const deletedMessages = await deleteMessages(this.instance.currentChannel as TextChannel, options);
-        return deletedMessages.array();
+        return deletedMessages;
     }
 
     /**
      * Get a list of messages in Engine#instance.currentChannel
      * @param options - ChannelLogsQueryOptions that determines what messages to fetch
      */
-    async readChannel (options: ChannelLogsQueryOptions): Promise<Array<Message>> {
+    async readChannel (options: ChannelLogsQueryOptions): Promise<Array<SerialMessage>> {
         if (!this.client || !this.instance.currentChannel) throw new EngineError('readChannel', this);
         const messages = await readChannel(this.instance.currentChannel, options);
-        return messages.array();
+        return messages;
     }
 
     /**

@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Serializer | discordquery</title>
+	<meta name="description" content="Documentation for discordquery">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">discordquery</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_engine_controllers_serializer_.html">&quot;engine/controllers/serializer&quot;</a>
+				</li>
+				<li>
+					<a href="_engine_controllers_serializer_.serializer.html">Serializer</a>
+				</li>
+			</ul>
+			<h1>Class Serializer</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Huge class contaning functions to serialize discord.js classes into simple objects</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Serializer</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#activity" class="tsd-kind-icon">activity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#channel" class="tsd-kind-icon">channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#channels" class="tsd-kind-icon">channels</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#emoji" class="tsd-kind-icon">emoji</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#guild" class="tsd-kind-icon">guild</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#guilds" class="tsd-kind-icon">guilds</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#member" class="tsd-kind-icon">member</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#members" class="tsd-kind-icon">members</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#messages" class="tsd-kind-icon">messages</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#normalizelistener" class="tsd-kind-icon">normalize<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#normalizequery" class="tsd-kind-icon">normalize<wbr>Query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#permissions" class="tsd-kind-icon">permissions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#presence" class="tsd-kind-icon">presence</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#reaction" class="tsd-kind-icon">reaction</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#role" class="tsd-kind-icon">role</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#user" class="tsd-kind-icon">user</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_engine_controllers_serializer_.serializer.html#void" class="tsd-kind-icon">void</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="activity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> activity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">activity<span class="tsd-signature-symbol">(</span>activities<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Activity</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialactivity.html" class="tsd-signature-type">SerialActivity</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:311</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize an array of discord activity into an array of objects</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>activities: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Activity</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of discord activities</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialactivity.html" class="tsd-signature-type">SerialActivity</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="channel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GuildChannel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:205</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord channel into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channel: <span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GuildChannel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord channel class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="channels" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> channels</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">channels<span class="tsd-signature-symbol">(</span>channels<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GuildChannel</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:108</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Take an array of discord channels and serialize them individually with .channel()</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channels: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GuildChannel</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of discord channels</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="emoji" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> emoji</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">emoji<span class="tsd-signature-symbol">(</span>emoji<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Emoji</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:244</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord emoji into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>emoji: <span class="tsd-signature-type">Emoji</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord emoji class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="guild" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> guild</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">(</span>guild<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:223</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord guild into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>guild: <span class="tsd-signature-type">Guild</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord guild class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="guilds" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> guilds</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">guilds<span class="tsd-signature-symbol">(</span>guilds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:97</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Take an array of discord guilds and serialize them individually with .guild()</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>guilds: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of discord guilds</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="member" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> member</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">member<span class="tsd-signature-symbol">(</span>member<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:182</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord member into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>member: <span class="tsd-signature-type">GuildMember</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord member class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="members" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> members</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">members<span class="tsd-signature-symbol">(</span>members<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:130</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Take an array of discord members and serialize them individually with .member()</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>members: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of discord guild members</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="message" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:141</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord message into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>message: <span class="tsd-signature-type">Message</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord message class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="messages" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> messages</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">(</span>messages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:119</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Take an array of discord messages and serialize them individually with .messages()</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>messages: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of discord messages</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="normalizelistener" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> normalize<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">normalize<wbr>Listener<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialactivity.html" class="tsd-signature-type">SerialActivity</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_types_serial_.html#serialpermissions" class="tsd-signature-type">SerialPermissions</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:41</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a discord event into a list of objects</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">ClientEvents</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialactivity.html" class="tsd-signature-type">SerialActivity</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_types_serial_.html#serialpermissions" class="tsd-signature-type">SerialPermissions</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="normalizequery" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> normalize<wbr>Query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">normalize<wbr>Query<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_types_engine_.enginecommand.html" class="tsd-signature-type">EngineCommand</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialactivity.html" class="tsd-signature-type">SerialActivity</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_types_serial_.html#serialpermissions" class="tsd-signature-type">SerialPermissions</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:12</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a callback from the engine and its value into an object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>command: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_types_engine_.enginecommand.html" class="tsd-signature-type">EngineCommand</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Engine command</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value returned by the engine command</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmessage.html" class="tsd-signature-type">SerialMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialmember.html" class="tsd-signature-type">SerialMember</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialchannel.html" class="tsd-signature-type">SerialChannel</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialguild.html" class="tsd-signature-type">SerialGuild</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialemoji.html" class="tsd-signature-type">SerialEmoji</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_types_serial_.serialactivity.html" class="tsd-signature-type">SerialActivity</a><span class="tsd-signature-symbol"> | </span><a href="../modules/_types_serial_.html#serialpermissions" class="tsd-signature-type">SerialPermissions</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="permissions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> permissions</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">permissions<span class="tsd-signature-symbol">(</span>permissions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Permissions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_serial_.html#serialpermissions" class="tsd-signature-type">SerialPermissions</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:338</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord permissions into an array of permission flags</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>permissions: <span class="tsd-signature-type">Permissions</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord permissions class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_serial_.html#serialpermissions" class="tsd-signature-type">SerialPermissions</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="presence" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> presence</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">(</span>presence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Presence</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:296</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord presence into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>presence: <span class="tsd-signature-type">Presence</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord presence class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialpresence.html" class="tsd-signature-type">SerialPresence</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="reaction" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> reaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">reaction<span class="tsd-signature-symbol">(</span>reaction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:258</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord reaction into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reaction: <span class="tsd-signature-type">MessageReaction</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord reaction class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialreaction.html" class="tsd-signature-type">SerialReaction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="role" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> role</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">role<span class="tsd-signature-symbol">(</span>role<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Role</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:272</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord role into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>role: <span class="tsd-signature-type">Role</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord role class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialrole.html" class="tsd-signature-type">SerialRole</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="user" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> user</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:162</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serialize a single discord user into its counterpart object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>user: <span class="tsd-signature-type">User</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Discord user class instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialuser.html" class="tsd-signature-type">SerialUser</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="void" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> void</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">void<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Users/javad/Dropbox/udvikling/projekter/discord-cli/src/engine/controllers/serializer.ts:89</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>void serializer to sympolize nothing is serialized or exists</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_serial_.serialvoid.html" class="tsd-signature-type">SerialVoid</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_engine_controllers_serializer_.html">&quot;engine/controllers/serializer&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="_engine_controllers_serializer_.serializer.html" class="tsd-kind-icon">Serializer</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#activity" class="tsd-kind-icon">activity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#channel" class="tsd-kind-icon">channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#channels" class="tsd-kind-icon">channels</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#emoji" class="tsd-kind-icon">emoji</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#guild" class="tsd-kind-icon">guild</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#guilds" class="tsd-kind-icon">guilds</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#member" class="tsd-kind-icon">member</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#members" class="tsd-kind-icon">members</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#message" class="tsd-kind-icon">message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#messages" class="tsd-kind-icon">messages</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#normalizelistener" class="tsd-kind-icon">normalize<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#normalizequery" class="tsd-kind-icon">normalize<wbr>Query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#permissions" class="tsd-kind-icon">permissions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#presence" class="tsd-kind-icon">presence</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#reaction" class="tsd-kind-icon">reaction</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#role" class="tsd-kind-icon">role</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#user" class="tsd-kind-icon">user</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_engine_controllers_serializer_.serializer.html#void" class="tsd-kind-icon">void</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

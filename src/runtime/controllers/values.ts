@@ -1,5 +1,5 @@
 import { Node } from '../parser';
-import { AnnotatedValue } from '../../types/ast';
+import { AnnotatedValue } from '../../types/parser';
 import { Token } from '../../types/tokens';
 
 /**

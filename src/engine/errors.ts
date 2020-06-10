@@ -1,10 +1,10 @@
-import { EngineCommands } from '../types/engine';
+import { EngineCommand } from '../types/engine';
 import { Engine } from '.';
 
 /** Engine error type used to throw errors when the engine fails */
 export class EngineError extends Error {
     /** The engine command */
-    command: keyof EngineCommands;
+    command: keyof EngineCommand;
     /** Client state boolean */
     clientConnected: boolean;
     /** Instance.currentGuild boolean */
@@ -18,7 +18,7 @@ export class EngineError extends Error {
      * @param engine - The Engine instance that failed
      * @param params - Error arguments passed to super()
      */
-    constructor (command: keyof EngineCommands, engine: Engine,  ...params: any) {
+    constructor (command: keyof EngineCommand, engine: Engine,  ...params: any) {
         super(...params);
         Error.captureStackTrace(this, EngineError);
         this.name = 'EngineError';

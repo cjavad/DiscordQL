@@ -1,4 +1,7 @@
-import { TextChannel, DMChannel, MessageEditOptions, Message } from 'discord.js';
+import { TextChannel, DMChannel, MessageEditOptions } from 'discord.js';
+import { SerialMessage } from '../../types/serial';
+import Serializer from './serializer';
+
 
 /**
  * Edits a discord message in a channel
@@ -6,7 +9,8 @@ import { TextChannel, DMChannel, MessageEditOptions, Message } from 'discord.js'
  * @param messageID - Discord message id of a message in the channel
  * @param newMessage - MessageEditOptions of the new message
  */
-export default async function editMessage (channel: TextChannel | DMChannel, messageID: string, newMessage: MessageEditOptions): Promise<Message> {
+export default async function editMessage (channel: TextChannel | DMChannel, messageID: string, newMessage: MessageEditOptions): Promise<SerialMessage> {
     const message = await channel.messages.fetch(messageID);
-    return await message.edit(newMessage.content, newMessage);
+    const editedMessage = await message.edit(newMessage.content, newMessage);
+    return Serializer.message(editedMessage);
 }
